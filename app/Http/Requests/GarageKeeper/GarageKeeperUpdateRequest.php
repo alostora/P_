@@ -25,14 +25,14 @@ class GarageKeeperUpdateRequest extends FormRequest
     public function rules(Request $request)
     {
         return [
-            'id'=>'required',
-            'name'=>'required|max:100',
-            'email'=>'required|email|unique:users,email,'.$request->id.'|max:100',
-            'password'=>'max:100',
-            'confirmPassword'=>'same:password',
-            'phone'=>'required|unique:users,phone,'.$request->id.'|max:20',
-            'address'=>'required|max:255',
-            'idNo'=>'max:255',
+            'id' => 'required',
+            'name' => 'required|max:100',
+            'email' => 'required|email|unique:users,email,' . $request->id . '|max:100',
+            'password' => 'max:100',
+            'confirmPassword' => 'same:password',
+            'phone' => 'required|unique:users,phone,' . $request->id . '|max:20',
+            'address' => 'required|max:255',
+            'idNo' => 'max:255',
         ];
     }
 }

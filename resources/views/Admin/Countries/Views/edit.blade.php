@@ -13,12 +13,13 @@
           <form role="form" action="{{url('admin/country/'.$country->id)}}" method="POST">
             @csrf
             @method('patch')
+            
+            <input type="hidden" class="form-control" name="id" id="id" value="{{$country->id}}">
+
             <div class="box-body">
                 
                 <div class="form-group">
                     <div class="col-md-6">
-                        <input type="hidden" class="form-control" name="id" id="id" value="{{$country->id}}">
-
                         <label for="nameAr">Name Ar</label>
                         <input type="text" class="form-control" name="nameAr" id="nameAr" value="{{$country->nameAr}}">
                     </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Foundations\Admins\GarageKeeper;
 
+use App\Constants\UserTyps;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
@@ -13,7 +14,7 @@ class GarageKeeperCreateCollection
 
         $validated['password'] = Hash::make($validated['password']);
         $validated['admin_id'] = auth()->id();
-        $validated['type'] = 2;
+        $validated['type'] = UserTyps::GARAGE_KEEPER['code'];
 
         User::create($validated);
     }

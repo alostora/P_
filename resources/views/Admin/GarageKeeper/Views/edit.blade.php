@@ -13,12 +13,13 @@
           <form role="form" action="{{url('admin/garage-keeper/'.$user->id)}}" method="POST">
             @csrf
             @method('patch')
+            
+            <input type="hidden" class="form-control" name="id" id="id" value="{{$user->id}}">
+            
             <div class="box-body">
                 
                 <div class="form-group">
                     <div class="col-md-6">
-                        <input type="hidden" class="form-control" name="id" id="id" value="{{$user->id}}">
-
                         <label for="name">Name</label>
                         <input type="text" class="form-control" name="name" id="name" value="{{$user->name}}">
                     </div>

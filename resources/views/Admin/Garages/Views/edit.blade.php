@@ -13,6 +13,9 @@
           <form role="form" action="{{url('admin/garage/'.$garage->id)}}" method="POST">
             @csrf
             @method('patch')
+
+            <input type="hidden" class="form-control" name="id" id="id" value="{{$garage->id}}">
+            
             <div class="box-body">
 
               <div class="form-group">
@@ -96,8 +99,6 @@
                 
                 <div class="form-group">
                     <div class="col-md-6">
-                        <input type="hidden" class="form-control" name="id" id="id" value="{{$garage->id}}">
-
                         <label for="nameAr">Name Ar</label>
                         <input type="text" class="form-control" name="nameAr" id="nameAr" value="{{$garage->nameAr}}">
                     </div>

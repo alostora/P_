@@ -25,7 +25,7 @@ class User extends Authenticatable
         'address',
         'long',
         'lat',
-        'type',//[admin,owner,saies,client]
+        'type', //[admin,owner,saies,client]
         'api_token',
         'idNo',
         'admin_id',

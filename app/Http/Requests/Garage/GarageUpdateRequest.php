@@ -25,18 +25,18 @@ class GarageUpdateRequest extends FormRequest
     public function rules(Request $request)
     {
         return [
-            'id'=>'required',
-            'nameAr'=>'required|unique:countries,nameAr|max:100',
-            'nameEn'=>'required|unique:countries,nameEn|max:100',
-            'country_id'=>'required',
-            'governorate_id'=>'required',
-            'city_id'=>'required',
-            'area_id'=>'required',
-            'street_id'=>'required',
-            'lang'=>'required',
-            'lat'=>'required',
-            'hourCost'=>'required',
-            'carCount'=>'required',
+            'id' => 'required',
+            'nameAr' => 'required|unique:countries,nameAr|max:100',
+            'nameEn' => 'required|unique:countries,nameEn|max:100',
+            'country_id' => 'required',
+            'governorate_id' => 'required',
+            'city_id' => 'required',
+            'area_id' => 'required',
+            'street_id' => 'required',
+            'lang' => 'required',
+            'lat' => 'required',
+            'hourCost' => 'required',
+            'carCount' => 'required',
 
         ];
     }

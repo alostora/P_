@@ -2,6 +2,7 @@
 
 namespace App\Http\Foundations\Admins\Admin;
 
+use App\Constants\UserTyps;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
@@ -12,7 +13,7 @@ class AdminCreateCollection
         $validated = $request->validated();
 
         $validated['password'] = Hash::make($validated['password']);
-        $validated['type'] = 0;
+        $validated['type'] = UserTyps::ADMIN['code'];
 
         User::create($validated);
     }

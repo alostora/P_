@@ -14,7 +14,7 @@ class Garage extends Model
         'nameEn',
         'lang',
         'lat',
-        'status',//[available ,notavalable]
+        'status', //[available ,notavalable]
         'street_id',
         'country_id',
         'governorate_id',
@@ -23,6 +23,4 @@ class Garage extends Model
         'hourCost',
         'carCount',
     ];
-
-
 }

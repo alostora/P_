@@ -24,13 +24,13 @@ class GarageKeeperCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required|max:100',
-            'email'=>'required|email|unique:users,email|max:100',
-            'password'=>'required|max:100',
-            'confirmPassword'=>'same:password',
-            'phone'=>'required|unique:users,phone|max:20',
-            'address'=>'required|max:255',
-            'idNo'=>'max:255',
+            'name' => 'required|max:100',
+            'email' => 'required|email|unique:users,email|max:100',
+            'password' => 'required|max:100',
+            'confirmPassword' => 'same:password',
+            'phone' => 'required|unique:users,phone|max:20',
+            'address' => 'required|max:255',
+            'idNo' => 'max:255',
         ];
     }
 }

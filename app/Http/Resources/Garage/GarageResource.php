@@ -15,7 +15,7 @@ class GarageResource extends JsonResource
     public function toArray($request)
     {
         return [
-            
+
             'id' => $this->id,
             'nameAr' => $this->nameAr,
             'nameEn' => $this->nameEn,
@@ -26,6 +26,5 @@ class GarageResource extends JsonResource
             'city_id' => $this->city_id,
             'area_id' => $this->area_id,
         ];
-
     }
 }

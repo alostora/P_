@@ -14,12 +14,10 @@ class Country extends Model
         'nameEn',
         'lang',
         'lat',
-        'type',//[country,governorate,city,area,street]
+        'type', //[country,governorate,city,area,street]
         'country_id',
         'governorate_id',
         'city_id',
         'area_id',
     ];
-
-
 }

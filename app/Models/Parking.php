@@ -25,6 +25,4 @@ class Parking extends Model
         'phoneNo',
         'type',
     ];
-
-
 }
