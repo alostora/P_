@@ -50,13 +50,13 @@
         <div class="col-xs-8">
           <div class="checkbox icheck">
             <label>
-              <input type="checkbox"> Remember Me
+              <input type="checkbox">@lang('admin.RememberMe')
             </label>
           </div>
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+          <button type="submit" class="btn btn-primary btn-block btn-flat">@lang('admin.SignIn')</button>
         </div>
         <!-- /.col -->
       </div>
@@ -64,8 +64,8 @@
 
     <!-- /.social-auth-links -->
 
-    <a href="#">I forgot my password</a><br>
-    <a href="register.html" class="text-center">Register a new membership</a>
+    <a href="#">@lang('admin.I forgot my password')</a><br>
+    <a href="register.html" class="text-center">@lang('admin.Register a new membership')</a>
 
   </div>
   <!-- /.login-box-body -->

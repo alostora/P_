@@ -50,7 +50,7 @@
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>A</b>LT</span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>Admin</b>LTE</span>
+          <span class="logo-lg"><b> @lang('admin.admin') - </b>LTE</span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top">
@@ -61,7 +61,17 @@
     
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
-              <!-- Messages: style can be found in dropdown.less-->
+              {{-- lang --}}
+              {{-- "{{url('admin/governorate/'.$governorate->id)}}" --}}
+              @if(App::getLocale()=='en')
+                <li class="active"><a href="{{url('admin/lang/ar')}}"><i class="fa fa-files-o"></i>@lang('admin.languageAr')</a></li>
+              @else
+                <li class="active"><a href="{{url('admin/lang/en')}}"><i class="fa fa-files-o"></i>@lang('admin.languageEn')</a></li>
+              @endif
+              {{-- lang --}}
+
+
+            {{--   <!-- Messages: style can be found in dropdown.less-->
               <li class="dropdown messages-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <i class="fa fa-envelope-o"></i>
@@ -258,7 +268,9 @@
                   </li>
                 </ul>
               </li>
-              <!-- User Account: style can be found in dropdown.less -->
+              <!-- User Account: style can be found in dropdown.less --> --}}
+
+
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <img src="{{url('AdminDesign')}}/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
@@ -274,7 +286,9 @@
                       <small>Member since Nov. 2012</small>
                     </p>
                   </li>
-                  <!-- Menu Body -->
+
+
+                  {{-- <!-- Menu Body -->
                   <li class="user-body">
                     <div class="row">
                       <div class="col-xs-4 text-center">
@@ -289,13 +303,15 @@
                     </div>
                     <!-- /.row -->
                   </li>
-                  <!-- Menu Footer-->
+                  <!-- Menu Footer--> --}}
+
+
                   <li class="user-footer">
                     <div class="pull-left">
-                      <a href="#" class="btn btn-default btn-flat">Profile</a>
+                      <a href="#" class="btn btn-default btn-flat">@lang('admin.profile')</a>
                     </div>
                     <div class="pull-right">
-                      <a href="{{url('admin/logOut')}}" class="btn btn-default btn-flat">Sign out</a>
+                      <a href="{{url('admin/logOut')}}" class="btn btn-default btn-flat">@lang('admin.signOut')</a>
                     </div>
                   </li>
                 </ul>

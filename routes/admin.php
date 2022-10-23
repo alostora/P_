@@ -11,13 +11,19 @@ use App\Http\Controllers\Admins\StreetController;
 use App\Http\Controllers\Admins\GarageController;
 use App\Http\Controllers\Admins\GarageKeeperController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
+Route::group(['prefix'=>'admin','middleware'=>'lang'],function(){
+    
+    Route::get('lang/{lang}', function($lang){
+        Session::put('locale',$lang);
+        return back();
+    });
 
-Route::group(['prefix'=>'admin'],function(){
     
     Route::get('login',[AuthController::class,'loginView']);
     Route::post('login',[AuthController::class,'login']);
-   
+
     Route::group(['middleware'=>'admin'],function(){
 
         Route::get('/',[DashboardController::class,'index']);
