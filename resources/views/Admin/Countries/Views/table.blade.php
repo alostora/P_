@@ -4,11 +4,11 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title col-md-8">Countries Data</h3>
+                    <h3 class="box-title col-md-8">@lang('admin.CountriesData')</h3>
                     <div class="col-md-4">
                         <a href="{{url('admin/country/create')}}" class="btn btn-primary btn-sm" style="height:25px;padding:2px;width:150px">
                             <i class="fa fa-plus"></i>
-                            <span>Create Country</span>
+                            <span>@lang('admin.CreateCountry')</span>
                         </a>
                     </div>
                 </div>
@@ -16,9 +16,9 @@
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>NAME</th>
-                                <th>NAME_EN</th>
-                                <th>OPERATIONS</th>
+                                <th>@lang('admin.NAME')</th>
+                                <th>@lang('admin.NAMEEN')</th>
+                                <th>@lang('admin.OPERATIONS')</th>
                             </tr>
                         </thead>
                         <tbody>

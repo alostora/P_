@@ -93,6 +93,24 @@ return [
 
 
 
+    //admin
+    'CreateAdminPage' => 'Create Admin Page',
+    'Name' => 'Name',
+    'EmailAddress' => 'Email Address',
+    'Password' => 'Password',
+    'ConfirmPassword' => 'Confirm Password',
+    'Phone' => 'Phone',
+    'Address' => 'Address',
+    'Submit' => 'Submit',
+
+    'EditAdminPage' => 'Edit Admin Page',
+    'AdminsData' => 'Admins Data',
+    'CreateAdmin' => 'Create Admin',
+    'NAME' => 'NAME',
+    'EMAIL' => 'EMAIL',
+    'PHONE' => 'PHONE',
+    'ADDRESS' => 'ADDRESS',
+    'OPERATIONS' => 'OPERATIONS',
 
 
 

@@ -6,7 +6,7 @@
         <!-- general form elements -->
         <div class="box box-primary">
           <div class="box-header with-border">
-            <h3 class="box-title">Edit Country Page</h3>
+            <h3 class="box-title">@lang('admin.EditCountryPage')</h3>
           </div>
           <!-- /.box-header -->
           <!-- form start -->
@@ -20,11 +20,11 @@
                 
                 <div class="form-group">
                     <div class="col-md-6">
-                        <label for="nameAr">Name Ar</label>
+                        <label for="nameAr">@lang('admin.nameAr')</label>
                         <input type="text" class="form-control" name="nameAr" id="nameAr" value="{{$country->nameAr}}">
                     </div>
                     <div class="col-md-6">
-                        <label for="nameEn">Name En</label>
+                        <label for="nameEn">@lang('admin.nameEn')</label>
                         <input type="text" class="form-control" name="nameEn" id="nameEn" value="{{$country->nameEn}}">
                     </div>
                 </div>

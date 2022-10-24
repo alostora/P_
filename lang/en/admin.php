@@ -92,6 +92,64 @@ return [
     'Streets' => 'Streets',
     'Garages' => 'Garages',
 
+    //admin
+    'CreateAdminPage' => 'CreateAdminPage',
+    'Name' => 'Name',
+    'EmailAddress' => 'Email Address',
+    'Password' => 'Password',
+    'ConfirmPassword' => 'Confirm Password',
+    'Phone' => 'Phone',
+    'Address' => 'Address',
+    'Submit' => 'Submit',
+
+    'EditAdminPage' => 'Edit Admin Page',
+    'AdminsData' => 'Admins Data',
+    'CreateAdmin' => 'Create Admin',
+    'NAME' => 'NAME',
+    'EMAIL' => 'EMAIL',
+    'PHONE' => 'PHONE',
+    'ADDRESS' => 'ADDRESS',
+    'OPERATIONS' => 'OPERATIONS',
+
+    //area
+    'createAreaPage' => 'Create Area Page',
+    'Countries' => 'Countries',
+    'governates' => 'Governates',
+    'Cities' => 'Cities',
+    'NameAr' => 'Name Arabic',
+    'nameEn' => 'Name English',
+
+    'EditareaPage' => 'Edit Area Page',
+    'AreasData' => 'Areas Data',
+    'CreateArea' => 'Create Area',
+
+    //cities
+
+    'createCityPage' => 'Create City Page',
+    'EditCityPage' => 'Edit City Page',
+    'CitiesData' => 'Cities Data',
+
+
+
+    'createCountryPage' => 'Create Country Page',
+    'EditCountryPage' => 'Edit Country Page',
+    'CountriesData' => 'Countries Data',
+    'CreateCountry' => 'Create Country',
+    
+
+
+
+
+    
+    
+
+
+
+
+
+    
+
+
 
 
 

@@ -6,7 +6,7 @@
         <!-- general form elements -->
         <div class="box box-primary">
           <div class="box-header with-border">
-            <h3 class="box-title">create Country Page</h3>
+            <h3 class="box-title">@lang('admin.createCountryPage')</h3>
           </div>
           <!-- /.box-header -->
           <!-- form start -->
@@ -15,11 +15,11 @@
             <div class="box-body">
               <div class="form-group">
                 <div class="col-md-6">
-                    <label for="nameAr">Name</label>
+                    <label for="nameAr">@lang('admin.Name')</label>
                     <input type="text" class="form-control" name="nameAr" id="nameAr" placeholder="Enter nameAr">
                 </div>
                 <div class="col-md-6">
-                    <label for="nameEn">nameEn</label>
+                    <label for="nameEn">@lang('admin.nameEn')</label>
                     <input type="text" class="form-control" name="nameEn" id="nameEn" placeholder="Enter nameEn">
                 </div>
               </div>
@@ -27,7 +27,7 @@
             <!-- /.box-body -->
 
             <div class="box-footer">
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary">@lang('admin.Submit')</button>
             </div>
           </form>
         </div>

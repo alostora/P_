@@ -6,7 +6,7 @@
       <!-- general form elements -->
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">Edit area Page</h3>
+          <h3 class="box-title">@lang('admin.EditareaPage')</h3>
         </div>
         <!-- /.box-header -->
         <!-- form start -->
@@ -21,7 +21,7 @@
             <div class="form-group">
 
               <div class="col-md-6">
-                <label>Countries</label>
+                <label>@lang('admin.Countries')</label>
                 <select class="form-control" name="country_id">
                   @if(!empty($countries))
                     @foreach ($countries as $key=>$country)
@@ -42,7 +42,7 @@
             <div class="form-group">
 
               <div class="col-md-6">
-                <label>governorates</label>
+                <label>@lang('admin.governorates')</label>
                 <select class="form-control" name="governorate_id">
                   @if(!empty($governorates))
                     @foreach ($governorates as $key=>$governorate)
@@ -57,7 +57,7 @@
               </div>
 
               <div class="col-md-6">
-                <label>cities</label>
+                <label>@lang('admin.cities')</label>
                 <select class="form-control" name="city_id">
                   @if(!empty($cities))
                     @foreach ($cities as $key=>$city)
@@ -78,12 +78,12 @@
             <div class="form-group">
 
               <div class="col-md-6">
-                <label for="nameAr">NameAr</label>
+                <label for="nameAr">@lang('admin.NameAr')</label>
                 <input type="text" class="form-control" name="nameAr" id="nameAr" value="{{$area->nameAr}}">
               </div>
 
               <div class="col-md-6">
-                <label for="nameEn">NameEn</label>
+                <label for="nameEn">@lang('admin.NameEn')</label>
                 <input type="text" class="form-control" name="nameEn" id="nameEn" value="{{$area->nameEn}}">
               </div>
 
@@ -93,7 +93,7 @@
           <!-- /.box-body -->
 
           <div class="box-footer">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">@lang('admin.Submit')</button>
           </div>
         </form>
       </div>
