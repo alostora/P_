@@ -6,7 +6,7 @@
         <!-- general form elements -->
         <div class="box box-primary">
           <div class="box-header with-border">
-            <h3 class="box-title">Edit Admin Page</h3>
+            <h3 class="box-title">@lang('admin.EditAdminPage')</h3>
           </div>
           <!-- /.box-header -->
           <!-- form start -->
@@ -20,39 +20,39 @@
                 
                 <div class="form-group">
                     <div class="col-md-6">
-                        <label for="name">Name</label>
+                        <label for="name">@lang('admin.name')</label>
                         <input type="text" class="form-control" name="name" id="name" value="{{$user->name}}">
                     </div>
                     <div class="col-md-6">
-                        <label for="email">Email address</label>
+                        <label for="email">@lang('admin.email')</label>
                         <input type="email" class="form-control" name="email" id="email" value="{{$user->email}}">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-md-6">
-                        <label for="phone">Phone</label>
+                        <label for="phone">@lang('admin.phone')</label>
                         <input type="text" class="form-control" name="phone" id="phone" value="{{$user->phone}}" >
                     </div>
                     <div class="col-md-6">
-                        <label for="address">Address</label>
+                        <label for="address">@lang('admin.address')</label>
                         <input type="text" class="form-control" name="address" id="address" value="{{$user->address}}"  >
                     </div>
                 </div>
                 
                 <div class="form-group">
                     <div class="col-md-6">
-                        <label for="password">Password</label>
+                        <label for="password">@lang('admin.password')</label>
                         <input type="password" class="form-control" name="password" id="password" >
                     </div>
                     <div class="col-md-6">
-                        <label for="confirmPassword">Confirm Password</label>
+                        <label for="confirmPassword">@lang('admin.confirmPassword')</label>
                         <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" >
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-md-6">
-                        <label for="idNo">id Number</label>
+                        <label for="idNo">@lang('admin.idNo')</label>
                         <input type="idNo" class="form-control" name="idNo" id="idNo" value="{{$user->idNo}}" >
                     </div>
                     
@@ -62,7 +62,7 @@
             <!-- /.box-body -->
 
             <div class="box-footer">
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary">@lang('admin.Submit')</button>
             </div>
           </form>
         </div>

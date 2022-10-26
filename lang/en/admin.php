@@ -135,6 +135,17 @@ return [
     'EditCountryPage' => 'Edit Country Page',
     'CountriesData' => 'Countries Data',
     'CreateCountry' => 'Create Country',
+
+
+
+    'createAdminPage' => 'Create Admin Page',
+    'GaragekeeperData' => 'Garage keeper Data',
+    'CreateGaragekeeper' => 'Create Garage keeper',
+    'EditgaragePage' => 'Edit Garage Page',
+    'GaragesData' => 'Garages Data',
+    'Creategarage' => 'Create Garage',
+    'creategovernoratePage' => 'Create Governorate Page',
+    'EditgovernoratePage' => 'Edit Governorate Page',
     
 
 

@@ -39,8 +39,22 @@
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+
+
+  @if(App::getLocale() == "ar" || App::getLocale() == "")
+    <link rel="stylesheet" href="{{url('dashboard_admin_panel/bootstrap/css/bootstrap-rtl.min.css')}}">
+    <link rel="stylesheet" href="{{url('dashboard_admin_panel/dist/css1/AdminLTE-rtl.min.css')}}">
+    <link rel="stylesheet" href="{{url('dashboard_admin_panel/dist/css1/skins/_all-skins-rtl.min.css')}}">
+    <?php $dir = "rtl" ?>
+  @elseif(App::getLocale() == "en")
+    <?php $dir = "ltr" ?> 
+  @else
+    <?php $dir = "rtl" ?>  
+  @endif
+
 </head>
-<body class="hold-transition skin-blue sidebar-mini"> 
+<body class="hold-transition skin-blue sidebar-mini" dir={{$dir}} > 
 
     <div class="wrapper">
     

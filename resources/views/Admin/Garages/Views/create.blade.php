@@ -6,7 +6,7 @@
         <!-- general form elements -->
         <div class="box box-primary">
           <div class="box-header with-border">
-            <h3 class="box-title">create Area Page</h3>
+            <h3 class="box-title">@lang('admin.createGaragePage')</h3>
           </div>
           <!-- /.box-header -->
           <!-- form start -->
@@ -16,7 +16,7 @@
               
               <div class="form-group">
                 <div class="col-md-6">
-                  <label>Countries</label>
+                  <label>@lang('admin.Countries')</label>
                     <select class="form-control" name="country_id">
                       @if(!empty($countries))
                         @foreach ($countries as $key=>$country)
@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="col-md-6">
-                  <label>governates</label>
+                  <label>@lang('admin.governates')</label>
                     <select class="form-control" name="governorate_id">
                       @if(!empty($governates))
                         @foreach ($governates as $key=>$governate)
@@ -39,7 +39,7 @@
               </div>
               <div class="form-group">
                 <div class="col-md-6">
-                  <label>Cities</label>
+                  <label>@lang('admin.Cities')</label>
                     <select class="form-control" name="city_id">
                       @if(!empty($cities))
                         @foreach ($cities as $key=>$city)
@@ -49,7 +49,7 @@
                     </select>
                 </div>
                 <div class="col-md-6">
-                  <label>Areas</label>
+                  <label>@lang('admin.Areas')</label>
                     <select class="form-control" name="area_id">
                       @if(!empty($areas))
                         @foreach ($areas as $key=>$area)
@@ -62,7 +62,7 @@
               </div>
               <div class="form-group">
                 <div class="col-md-6">
-                  <label>streets</label>
+                  <label>@lang('admin.streets')</label>
                     <select class="form-control" name="street_id">
                       @if(!empty($streets))
                         @foreach ($streets as $key=>$street)
@@ -76,31 +76,31 @@
               <div class="clearfix"></div>
               <div class="form-group">
                 <div class="col-md-6">
-                    <label for="nameAr">Name</label>
+                    <label for="nameAr">@lang('admin.Name')</label>
                     <input type="text" class="form-control" name="nameAr" id="nameAr" placeholder="Enter nameAr">
                 </div>
                 <div class="col-md-6">
-                    <label for="nameEn">nameEn</label>
+                    <label for="nameEn">@lang('admin.nameEn')</label>
                     <input type="text" class="form-control" name="nameEn" id="nameEn" placeholder="Enter nameEn">
                 </div>
               </div>
               <div class="form-group">
                 <div class="col-md-6">
-                    <label for="lang">lang</label>
+                    <label for="lang">@lang('admin.lang')</label>
                     <input type="text" class="form-control" name="lang" id="lang" placeholder="Enter lang">
                 </div>
                 <div class="col-md-6">
-                    <label for="lat">lat</label>
+                    <label for="lat">@lang('admin.lat')</label>
                     <input type="text" class="form-control" name="lat" id="lat" placeholder="Enter lat">
                 </div>
               </div>
               <div class="form-group">
                 <div class="col-md-6">
-                    <label for="hourCost">hourCost</label>
+                    <label for="hourCost">@lang('admin.hourCost')</label>
                     <input type="number" class="form-control" name="hourCost" id="hourCost" placeholder="Enter hourCost">
                 </div>
                 <div class="col-md-6">
-                    <label for="carCount">carCount</label>
+                    <label for="carCount">@lang('admin.carCount')</label>
                     <input type="number" class="form-control" name="carCount" id="carCount" placeholder="Enter carCount">
                 </div>
               </div>
@@ -108,7 +108,7 @@
             <!-- /.box-body -->
 
             <div class="box-footer">
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary">@lang('admin.Submit')</button>
             </div>
           </form>
         </div>
