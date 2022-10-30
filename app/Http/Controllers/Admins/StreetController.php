@@ -7,7 +7,7 @@ use App\Http\Foundations\Admins\Countries\Street\StreetCreateCollection;
 use App\Http\Foundations\Admins\Countries\Street\StreetUpdateCollection;
 use App\Http\Requests\Countries\Street\StreetCreateRequest;
 use App\Http\Requests\Countries\Street\StreetUpdateRequest;
-use App\Http\Resources\Street\StreetResource;
+use App\Http\Resources\Admin\Street\StreetResource;
 use App\Models\Country;
 
 class StreetController extends Controller

@@ -24,5 +24,6 @@ class Parking extends Model
         'licenceNo',
         'phoneNo',
         'type',
+        'code',
     ];
 }

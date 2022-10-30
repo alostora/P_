@@ -28,15 +28,18 @@ return new class extends Migration
             $table->string('licenceNo')->nullable();
             $table->string('phoneNo')->nullable();
             $table->string('type')->nullable();
+            $table->string('code')->nullable();
             
      
             $table->unsignedBigInteger('garage_id')->nullable();
             $table->foreign('garage_id')->references('id')->on('garages')
             ->onDelete('cascade');
-
+            
             $table->unsignedBigInteger('saies_id')->nullable();
-            $table->foreign('saies_id')->references('id')->on('countries')
+            $table->foreign('saies_id')->references('id')->on('users')
             ->onDelete('cascade');
+
+
 
             $table->timestamps();
 

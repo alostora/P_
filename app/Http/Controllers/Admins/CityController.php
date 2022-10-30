@@ -8,7 +8,7 @@ use App\Http\Foundations\Admins\Countries\City\CityCreateCollection;
 use App\Http\Foundations\Admins\Countries\City\CityUpdateCollection;
 use App\Http\Requests\Countries\City\CityCreateRequest;
 use App\Http\Requests\Countries\City\CityUpdateRequest;
-use App\Http\Resources\City\CityResource;
+use App\Http\Resources\Admin\City\CityResource;
 use App\Models\Country;
 
 class CityController extends Controller

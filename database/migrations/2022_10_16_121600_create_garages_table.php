@@ -43,6 +43,10 @@ return new class extends Migration
             $table->unsignedBigInteger('street_id')->nullable();
             $table->foreign('street_id')->references('id')->on('countries')
             ->onDelete('cascade');
+            
+            $table->unsignedBigInteger('saies_id')->nullable();
+            $table->foreign('saies_id')->references('id')->on('users')
+            ->onDelete('cascade');
 
             $table->timestamps();
         });

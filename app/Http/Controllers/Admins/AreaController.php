@@ -7,7 +7,7 @@ use App\Http\Foundations\Admins\Countries\Area\AreaCreateCollection;
 use App\Http\Foundations\Admins\Countries\Area\AreaUpdateCollection;
 use App\Http\Requests\Countries\Area\AreaCreateRequest;
 use App\Http\Requests\Countries\Area\AreaUpdateRequest;
-use App\Http\Resources\Area\AreaResource;
+use App\Http\Resources\Admin\Area\AreaResource;
 use App\Models\Country;
 use Illuminate\Http\Request;
 

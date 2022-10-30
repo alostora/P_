@@ -7,7 +7,7 @@ use App\Http\Foundations\Admins\Countries\Country\CountryCreateCollection;
 use App\Http\Foundations\Admins\Countries\Country\CountryUpdateCollection;
 use App\Http\Requests\Countries\Country\CountryCreateRequest;
 use App\Http\Requests\Countries\Country\CountryUpdateRequest;
-use App\Http\Resources\Countries\CountryResource;
+use App\Http\Resources\Admin\Countries\CountryResource;
 use App\Models\Country;
 use Illuminate\Http\Request;
 

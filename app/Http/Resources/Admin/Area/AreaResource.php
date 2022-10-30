@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources\Governorates;
+namespace App\Http\Resources\Admin\Area;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class GovernorateResource extends JsonResource
+class AreaResource extends JsonResource
 {
     /**
      * Transform the resource into an array.

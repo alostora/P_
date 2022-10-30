@@ -7,7 +7,7 @@ use App\Http\Foundations\Admins\Countries\Governorate\GovernorateCreateCollectio
 use App\Http\Foundations\Admins\Countries\Governorate\GovernorateUpdateCollection;
 use App\Http\Requests\Countries\Governorate\GovernorateCreateRequest;
 use App\Http\Requests\Countries\Governorate\GovernorateUpdateRequest;
-use App\Http\Resources\Governorates\GovernorateResource;
+use App\Http\Resources\Admin\Governorates\GovernorateResource;
 use App\Models\Country;
 
 class GovernorateController extends Controller

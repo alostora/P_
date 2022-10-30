@@ -94,7 +94,7 @@ return [
 
 
     //admin
-    'CreateAdminPage' => 'Create Admin Page',
+    'CreateAdminPage' => 'CreateAdminPage',
     'Name' => 'Name',
     'EmailAddress' => 'Email Address',
     'Password' => 'Password',
@@ -111,6 +111,46 @@ return [
     'PHONE' => 'PHONE',
     'ADDRESS' => 'ADDRESS',
     'OPERATIONS' => 'OPERATIONS',
+
+    //area
+    'createAreaPage' => 'Create Area Page',
+    'Countries' => 'Countries',
+    'governates' => 'Governates',
+    'Cities' => 'Cities',
+    'NameAr' => 'Name Arabic',
+    'nameEn' => 'Name English',
+
+    'EditareaPage' => 'Edit Area Page',
+    'AreasData' => 'Areas Data',
+    'CreateArea' => 'Create Area',
+
+    //cities
+
+    'createCityPage' => 'Create City Page',
+    'EditCityPage' => 'Edit City Page',
+    'CitiesData' => 'Cities Data',
+
+
+
+    'createCountryPage' => 'Create Country Page',
+    'EditCountryPage' => 'Edit Country Page',
+    'CountriesData' => 'Countries Data',
+    'CreateCountry' => 'Create Country',
+
+
+
+    'createAdminPage' => 'Create Admin Page',
+    'GaragekeeperData' => 'Garage keeper Data',
+    'CreateGaragekeeper' => 'Create Garage keeper',
+    'EditgaragePage' => 'Edit Garage Page',
+    'GaragesData' => 'Garages Data',
+    'Creategarage' => 'Create Garage',
+    'creategovernoratePage' => 'Create Governorate Page',
+    'EditgovernoratePage' => 'Edit Governorate Page',
+    
+
+
+
 
 
 

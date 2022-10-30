@@ -22,5 +22,6 @@ class Garage extends Model
         'area_id',
         'hourCost',
         'carCount',
+        'saies_id',
     ];
 }

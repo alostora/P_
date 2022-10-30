@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources\Garage;
+namespace App\Http\Resources\Admin\Governorates;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class GarageResource extends JsonResource
+class GovernorateResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -19,8 +19,6 @@ class GarageResource extends JsonResource
             'id' => $this->id,
             'nameAr' => $this->nameAr,
             'nameEn' => $this->nameEn,
-            'lang' => $this->lang,
-            'lat' => $this->lat,
             'country_id' => $this->country_id,
             'governorate_id' => $this->governorate_id,
             'city_id' => $this->city_id,

@@ -61,12 +61,23 @@
 
               </div>
               <div class="form-group">
+                
                 <div class="col-md-6">
                   <label>@lang('admin.streets')</label>
                     <select class="form-control" name="street_id">
                       @if(!empty($streets))
                         @foreach ($streets as $key=>$street)
                           <option value="{{$street->id}}">{{$street->nameAr}}</option>
+                        @endforeach
+                      @endif     
+                    </select>
+                </div>
+                <div class="col-md-6">
+                  <label>@lang('admin.saies')</label>
+                    <select class="form-control" name="saies_id">
+                      @if(!empty($saies))
+                        @foreach ($saies as $key=>$oneSaies)
+                          <option value="{{$oneSaies->id}}">{{$oneSaies->name}}</option>
                         @endforeach
                       @endif     
                     </select>

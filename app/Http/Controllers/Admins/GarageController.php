@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers\Admins;
 
+use App\Constants\UserTyps;
 use App\Http\Controllers\Controller;
 use App\Http\Foundations\Admins\Garage\GarageCreateCollection;
 use App\Http\Foundations\Admins\Garage\GarageUpdateCollection;
 use App\Http\Requests\Garage\GarageCreateRequest;
 use App\Http\Requests\Garage\GarageUpdateRequest;
-use App\Http\Resources\Garage\GarageResource;
+use App\Http\Resources\Admin\Garage\GarageResource;
 use App\Models\Country;
 use App\Models\Garage;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class GarageController extends Controller
@@ -30,13 +32,14 @@ class GarageController extends Controller
 
     public function create()
     {
-        $countries = Country::where('type', 0)->get(); //country
-        $governates = Country::where('type', 1)->get(); //governate
-        $cities = Country::where('type', 2)->get(); //cities
-        $areas = Country::where('type', 3)->get(); //areas
-        $streets = Country::where('type', 4)->get(); //streets
+        $data['countries'] = Country::where('type', 0)->get(); //country
+        $data['governates'] = Country::where('type', 1)->get(); //governate
+        $data['cities'] = Country::where('type', 2)->get(); //cities
+        $data['areas'] = Country::where('type', 3)->get(); //areas
+        $data['streets'] = Country::where('type', 4)->get(); //streets
+        $data['saies'] = User::where('type',UserTyps::GARAGE_KEEPER['code'])->get(); //streets
 
-        return view('Admin.Garages.create', compact('countries', 'governates', 'cities', 'areas', 'streets'));
+        return view('Admin.Garages.create', $data);
     }
 
     public function store(GarageCreateRequest $request)

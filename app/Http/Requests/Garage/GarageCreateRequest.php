@@ -35,6 +35,7 @@ class GarageCreateRequest extends FormRequest
             'lat' => 'required',
             'hourCost' => 'required',
             'carCount' => 'required',
+            'saies_id' => 'required',
         ];
     }
 }

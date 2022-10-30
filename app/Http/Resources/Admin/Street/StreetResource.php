@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources\Area;
+namespace App\Http\Resources\Admin\Street;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class AreaResource extends JsonResource
+class StreetResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
