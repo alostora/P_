@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Constants\Admin\AdminTyps;
 use App\Constants\UserTyps;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\UserResource;
@@ -15,43 +14,53 @@ use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
-   
-    public function login(Request $request){
 
-        $user = User::where('email',$request->email)->where('type',UserTyps::GARAGE_KEEPER['code'])->first();
+    public function login(Request $request)
+    {
 
-        if (empty($user)){
+        $user = User::where('phone', $request->phone)->where('type', UserTyps::GARAGE_KEEPER['code'])->first();
 
-           $data['status'] =false;
-           $data['message'] = "email not found";
+        if (empty($user)) {
 
-           return $data;
+            $data = [
+                'success' => false,
 
-        }else{
+                'message' => 'phone not found',
+            ];
 
-            if (Hash::check($request->password, $user->password)){
+            return response()->json($data, 401);
+        } else {
+
+            if (Hash::check($request->password, $user->password)) {
 
                 $user->api_token = hash('sha256', Str::random(60));
+
                 $user->save();
 
-                $data['status'] = true;
-                $data['message'] = "logged in successfully";
-                $data['data'] = new UserResource($user);
+                $data = [
+                    'success' => true,
 
-                return response()->json($data);
+                    'message' => trans('garage_keeper.logged_in_successfully'),
 
+                    'data' => new UserResource($user),
+                ];
+
+                return  response()->json($data, 200);
             }
-            
         }
     }
 
-    public function logout(){
+    public function logout()
+    {
         $user_id = Auth::guard('api')->id();
-        User::where('id',$user_id)->update(['api_token'=>null]);
+
+        User::where('id', $user_id)->update(['api_token' => null]);
+
+        $data = [
+            'success' => true,
+            'message' => trans('garage_keeper.logged_out_successfully'),
+        ];
         
-        $data['status'] =true;
-        $data['message'] = "loged_out";
-        return $data;
+        return  response()->json($data, 200);
     }
-    
 }
