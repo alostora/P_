@@ -9,7 +9,7 @@ class UserTyps
 
         0 => UserTyps::ADMIN,
         1 => UserTyps::MODERATOR,
-        2 => UserTyps::GARAGE_KEEPER,
+        2 => UserTyps::SAIES,
    ];
 
     public const ADMIN = [
@@ -26,10 +26,10 @@ class UserTyps
         'name_ar' => "مشرف"
     ];
     
-    public const GARAGE_KEEPER = [
+    public const SAIES = [
         'code' => 2,
-        'prefix' => "GARAGE_KEEPER",
-        'name' => "Garage keeper",
+        'prefix' => "SAIES",
+        'name' => "Saies",
         'name_ar' => "سايس"
     ];
 }

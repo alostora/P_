@@ -18,7 +18,7 @@ class AuthController extends Controller
     public function login(Request $request)
     {
 
-        $user = User::where('phone', $request->phone)->where('type', UserTyps::GARAGE_KEEPER['code'])->first();
+        $user = User::where('phone', $request->phone)->where('type', UserTyps::SAIES['code'])->first();
 
         if (empty($user)) {
 
@@ -40,7 +40,7 @@ class AuthController extends Controller
                 $data = [
                     'success' => true,
 
-                    'message' => trans('garage_keeper.logged_in_successfully'),
+                    'message' => trans('saies.logged_in_successfully'),
 
                     'data' => new UserResource($user),
                 ];
@@ -58,7 +58,7 @@ class AuthController extends Controller
 
         $data = [
             'success' => true,
-            'message' => trans('garage_keeper.logged_out_successfully'),
+            'message' => trans('saies.logged_out_successfully'),
         ];
         
         return  response()->json($data, 200);

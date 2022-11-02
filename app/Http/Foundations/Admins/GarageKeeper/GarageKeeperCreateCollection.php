@@ -14,7 +14,7 @@ class GarageKeeperCreateCollection
 
         $validated['password'] = Hash::make($validated['password']);
         $validated['admin_id'] = auth()->id();
-        $validated['type'] = UserTyps::GARAGE_KEEPER['code'];
+        $validated['type'] = UserTyps::SAIES['code'];
 
         User::create($validated);
     }

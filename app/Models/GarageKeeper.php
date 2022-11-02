@@ -6,41 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Parking extends Model
+class GarageKeeper extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-
-        'clientName',
-
-        'clientCarNumber',
-
-        'clientIdentificationNumber',
-
-        'licenceNumber',
-
-        'clientPhone',
-
-        'costType',
-
-        'cost',
-
-        'status',
-
-        'type',
-
-        'code',
-
-        'notes',
-
-        'starts_at',
-
-        'ends_at',
-
-        'garage_id',
-
         'saies_id',
+        'garage_id',
     ];
 
     public function saies() : BelongsTo

@@ -13,35 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('parkings', function (Blueprint $table) {
+        Schema::create('garage_keepers', function (Blueprint $table) {
             $table->id();
-
-            $table->string('clientName')->nullable();
-
-            $table->string('clientCarNumber')->nullable();
-
-            $table->string('clientIdentificationNumber')->nullable();
-
-            $table->string('licenceNumber')->nullable();
-
-            $table->string('clientPhone')->nullable();
-
-            $table->string('costType')->nullable();
-
-            $table->string('cost')->nullable();
-
-            $table->string('status')->nullable();
-
-            $table->string('type')->nullable();
-
-            $table->string('notes')->nullable();
-
-            $table->string('code')->nullable();
-
-            $table->string('starts_at')->nullable();
-
-            $table->string('ends_at')->nullable();
-
+            
             $table->unsignedBigInteger('garage_id')->nullable();
             $table->foreign('garage_id')->references('id')->on('garages')
                 ->onDelete('cascade');
@@ -49,9 +23,7 @@ return new class extends Migration
             $table->unsignedBigInteger('saies_id')->nullable();
             $table->foreign('saies_id')->references('id')->on('users')
                 ->onDelete('cascade');
-
-
-
+                
             $table->timestamps();
         });
     }
@@ -63,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('parkings');
+        Schema::dropIfExists('garage_keepers');
     }
 };

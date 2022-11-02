@@ -6,7 +6,7 @@ use App\Http\Resources\Admin\Garage\GarageKeeperResource;
 use App\Http\Resources\Admin\Garage\GarageResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class UserResource extends JsonResource
+class UserMinifiedResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -19,12 +19,8 @@ class UserResource extends JsonResource
         return [
 
             'id' => $this->id,
-            'token' => $this->api_token,
             'name' => $this->name,
-            'email' => $this->email,
             'phone' => $this->phone,
-            'address' => $this->address,
-            'identificationNumber' => $this->identificationNumber,
             'garage' => new GarageKeeperResource($this->garage),
         ];
     }

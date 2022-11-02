@@ -24,20 +24,11 @@ class ParkingCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'startDate' => 'required|date',
-            'endDate' => 'required|date',
-            'costType' => 'required|numeric',
-            'cost' => 'required|numeric',
-            'status' => 'required|numeric',
-            'notes' => 'required|string',
-            'userName' => 'required|string',
-            'carNo' => 'required|string',
-            'idNo' => 'required|string',
-            'licenceNo' => 'required|string',
-            'phoneNo' => 'required|string',
-            'type' => 'required|numeric',
-            'code' => 'required|string'
-
+            "clientName" => "required|string",
+            "clientCarNumber" => "required|string",
+            "clientIdentificationNumber" => "required|string",
+            "licenceNumber" => "required|string",
+            "clientPhone" => "required|string",
         ];
     }
 }

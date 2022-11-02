@@ -44,7 +44,6 @@ Route::group(['prefix'=>'admin','middleware'=>'lang'],function(){
         Route::patch('garage-keeper/{user}', [GarageKeeperController::class,'update']);
         Route::get('garage-keeper/delete/{user}', [GarageKeeperController::class,'destroy']);
 
-
         Route::get('countries',[CountryController::class,'index']);
         Route::get('country/show/{country}', [CountryController::class,'show']);
         Route::get('country/create', [CountryController::class,'create']);
@@ -52,7 +51,6 @@ Route::group(['prefix'=>'admin','middleware'=>'lang'],function(){
         Route::post('country', [CountryController::class,'store']);
         Route::patch('country/{country}', [CountryController::class,'update']);
         Route::get('country/delete/{country}', [CountryController::class,'destroy']);
-
 
         Route::get('governorates',[GovernorateController::class,'index']);
         Route::get('governorate/show/{country}', [GovernorateController::class,'show']);

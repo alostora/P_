@@ -30,7 +30,7 @@ class GarageKeeperCreateRequest extends FormRequest
             'confirmPassword' => 'same:password',
             'phone' => 'required|unique:users,phone|max:20',
             'address' => 'required|max:255',
-            'idNo' => 'max:255',
+            'identificationNumber' => 'max:255',
         ];
     }
 }

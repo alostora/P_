@@ -26,16 +26,16 @@ class GarageCreateRequest extends FormRequest
         return [
             'nameAr' => 'required|unique:countries,nameAr|max:100',
             'nameEn' => 'required|unique:countries,nameEn|max:100',
-            'country_id' => 'required',
-            'governorate_id' => 'required',
-            'city_id' => 'required',
-            'area_id' => 'required',
-            'street_id' => 'required',
-            'lang' => 'required',
-            'lat' => 'required',
+            'longitude' => 'required',
+            'latitude' => 'required',
             'hourCost' => 'required',
             'carCount' => 'required',
-            'saies_id' => 'required',
+            'country_id' => 'required|exists:countries,id',
+            'governorate_id' => 'required|exists:countries,id',
+            'city_id' => 'required|exists:countries,id',
+            'area_id' => 'required|exists:countries,id',
+            'street_id' => 'required|exists:countries,id',
+            'saies_id' => 'required|exists:countries,id',
         ];
     }
 }

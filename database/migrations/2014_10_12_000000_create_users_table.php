@@ -19,11 +19,11 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('phone')->unique();
             $table->string('address')->nullable();
-            $table->string('long')->nullable();
-            $table->string('lat')->nullable();
+            $table->string('longitude')->nullable();
+            $table->string('latitude')->nullable();
             $table->string('type');
             $table->string('api_token')->nullable();
-            $table->string('idNo')->nullable();
+            $table->string('identificationNumber')->nullable();
            
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

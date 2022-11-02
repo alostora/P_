@@ -97,12 +97,12 @@
               </div>
               <div class="form-group">
                 <div class="col-md-6">
-                    <label for="lang">@lang('admin.lang')</label>
-                    <input type="text" class="form-control" name="lang" id="lang" placeholder="Enter lang">
+                    <label for="longitude">@lang('admin.longitude')</label>
+                    <input type="text" class="form-control" name="longitude" id="longitude" placeholder="Enter longitude">
                 </div>
                 <div class="col-md-6">
-                    <label for="lat">@lang('admin.lat')</label>
-                    <input type="text" class="form-control" name="lat" id="lat" placeholder="Enter lat">
+                    <label for="latitude">@lang('admin.latitude')</label>
+                    <input type="text" class="form-control" name="latitude" id="latitude" placeholder="Enter latitude">
                 </div>
               </div>
               <div class="form-group">

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Garage extends Model
 {
@@ -12,8 +13,8 @@ class Garage extends Model
     protected $fillable = [
         'nameAr',
         'nameEn',
-        'lang',
-        'lat',
+        'longitude',
+        'latitude',
         'status', //[available ,notavalable]
         'street_id',
         'country_id',
@@ -22,6 +23,11 @@ class Garage extends Model
         'area_id',
         'hourCost',
         'carCount',
-        'saies_id',
     ];
+
+    
+    public function saies():HasOne
+    {
+        return $this->hasOne(GarageKeeper::class,'garage_id');
+    }
 }

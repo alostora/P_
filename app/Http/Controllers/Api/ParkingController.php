@@ -15,7 +15,7 @@ class ParkingController extends Controller
     public function index(Garage $garage){
 
 
-        $parkedCars=Parking::where('garage_id',$garage->id)->get();
+        $parkedCars = Parking::where('garage_id',$garage->id)->get();
 
         $data = [
             'success' => true,

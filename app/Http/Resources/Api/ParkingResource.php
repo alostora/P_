@@ -2,6 +2,8 @@
 
 namespace App\Http\Resources\Api;
 
+use App\Http\Resources\Admin\Garage\GarageMinifiedResource;
+use App\Http\Resources\UserMinifiedResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ParkingResource extends JsonResource
@@ -17,22 +19,28 @@ class ParkingResource extends JsonResource
         return [
             
             'id' => $this->id,
-            'garage_id' => $this->garage_id,
-            'saies_id' => $this->saies_id,
-            'startDate' => $this->startDate,
-            'endDate' => $this->endDate,
-            'costType' => $this->costType,
-            'cost' => $this->cost,
-            'status' => $this->status,
-            'notes' => $this->notes,
-            'userName' => $this->userName,
-            'carNo' => $this->carNo,
-            'idNo' => $this->idNo,
-            'licenceNo' => $this->licenceNo,
-            'phoneNo' => $this->phoneNo,
-            'type' => $this->type,
-            'code' => $this->code,
+
+            'clientName' => $this->clientName,
+
+            'clientCarNumber' => $this->clientCarNumber,
+
+            'clientIdentificationNumber' => $this->clientIdentificationNumber,
+
+            'licenceNumber' => $this->licenceNumber,
+
+            'clientPhone' => $this->clientPhone,
             
+            'code' => $this->code,
+
+            'notes' => $this->notes,
+
+            'starts_at' => $this->starts_at,
+
+            'ends_at' => $this->ends_at,
+
+            'saies' => new UserMinifiedResource($this->saies),
+
+            'garage' => new GarageMinifiedResource($this->garage),
 
         ];
     }

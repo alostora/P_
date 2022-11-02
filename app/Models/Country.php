@@ -12,8 +12,8 @@ class Country extends Model
     protected $fillable = [
         'nameAr',
         'nameEn',
-        'lang',
-        'lat',
+        'longitude',
+        'latitude',
         'type', //[country,governorate,city,area,street]
         'country_id',
         'governorate_id',

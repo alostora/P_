@@ -8,8 +8,13 @@ class GarageCreateCollection
 {
     public static function createGarage($request)
     {
-        $validated = $request->validated();
+        $validated = $request->except('saies_id');
 
-        Garage::create($validated);
+        $garage = Garage::create($validated);
+
+        $garage->saies()->create([
+            "garage_id" => $garage->id,
+            "saies_id" => $request->saies_id
+        ]);
     }
 }

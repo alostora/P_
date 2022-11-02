@@ -14,16 +14,23 @@ return new class extends Migration
     public function up()
     {
         Schema::create('garages', function (Blueprint $table) {
+
             $table->id();
+
             $table->string('nameAr')->nullable();
+
             $table->string('nameEn')->nullable();
-            $table->string('lang')->nullable();
-            $table->string('lat')->nullable();
+
+            $table->string('longitude')->nullable();
+
+            $table->string('latitude')->nullable();
+
             $table->string('hourCost')->nullable();
+
             $table->string('carCount')->nullable();
+            
             $table->string('status')->nullable(); //avl,not avl
             
-     
             $table->unsignedBigInteger('country_id')->nullable();
             $table->foreign('country_id')->references('id')->on('countries')
             ->onDelete('cascade');
@@ -42,10 +49,6 @@ return new class extends Migration
 
             $table->unsignedBigInteger('street_id')->nullable();
             $table->foreign('street_id')->references('id')->on('countries')
-            ->onDelete('cascade');
-            
-            $table->unsignedBigInteger('saies_id')->nullable();
-            $table->foreign('saies_id')->references('id')->on('users')
             ->onDelete('cascade');
 
             $table->timestamps();

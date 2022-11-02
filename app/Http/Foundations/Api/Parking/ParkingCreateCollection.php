@@ -8,10 +8,9 @@ class ParkingCreateCollection
 {
     public static function createParking($request)
     {
-
         $data = $request->validated();
-        $data['saies_id'] = auth()->id();
-        $data['garage_id'] = auth()->user()->garage_id;
+        $data['saies_id'] = auth()->guard('api')->id();
+        $data['garage_id'] = auth()->guard('api')->user()->garage->garage_id;
 
         return  Parking::create($data);
     }
