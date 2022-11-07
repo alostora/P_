@@ -32,6 +32,10 @@ class ParkingResource extends JsonResource
             
             'code' => $this->code,
 
+            'costType' => $this->costType,
+
+            'cost' => $this->cost,
+
             'notes' => $this->notes,
 
             'starts_at' => $this->starts_at,

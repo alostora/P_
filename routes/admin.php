@@ -10,6 +10,7 @@ use App\Http\Controllers\Admins\GovernorateController;
 use App\Http\Controllers\Admins\StreetController;
 use App\Http\Controllers\Admins\GarageController;
 use App\Http\Controllers\Admins\GarageKeeperController;
+use App\Http\Controllers\Admins\ParkingController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 
@@ -94,6 +95,8 @@ Route::group([
         Route::post('garage', [GarageController::class, 'store']);
         Route::patch('garage/{garage}', [GarageController::class, 'update']);
         Route::get('garage/delete/{garage}', [GarageController::class, 'destroy']);
+
+        Route::get('all-parked-cars', [ParkingController::class, 'index']);
 
         Route::any('logOut', [AuthController::class, 'logOut']);
     });

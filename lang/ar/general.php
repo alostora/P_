@@ -33,11 +33,12 @@ return [
 
 
      //side bar
+     'home' => 'الرئيسية',
+     'online' => 'متصل',
      'admins' => 'الادمن',
      'saies' => 'السايس',
      'countries' => 'الدول',
-     'online' => 'متصل',
-     'home' => 'الرئيسية',
+     'parked_cars' => 'الركنات',
  
      
 
