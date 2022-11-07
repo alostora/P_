@@ -8,7 +8,6 @@ use App\Http\Foundations\Admins\GarageKeeper\GarageKeeperUpdateCollection;
 use App\Http\Requests\GarageKeeper\GarageKeeperCreateRequest;
 use App\Http\Requests\GarageKeeper\GarageKeeperUpdateRequest;
 use App\Http\Resources\UserResource;
-use App\Models\Garage;
 use App\Models\User;
 
 class GarageKeeperController extends Controller
@@ -30,8 +29,7 @@ class GarageKeeperController extends Controller
 
     public function create()
     {
-        $data['garages'] = Garage::where('saies_id',null)->get();
-        return view('Admin.GarageKeeper.create',$data);
+        return view('Admin.GarageKeeper.create');
     }
 
     public function store(GarageKeeperCreateRequest $request)
@@ -39,26 +37,32 @@ class GarageKeeperController extends Controller
         GarageKeeperCreateCollection::createGarageKeeper($request);
 
         session()->flash('success', 'garage keeper created successfully');
+
         return redirect(url('admin/garage-keepers'));
     }
 
     public function edit(User $user)
     {
         $garageKeepers = new UserResource($user);
+
         return view('Admin.GarageKeeper.edit', compact('user'));
     }
 
     public function update(GarageKeeperUpdateRequest $request, User $user)
     {
         GarageKeeperUpdateCollection::updateGarageKeeper($request, $user);
+
         session()->flash('success', 'admin updated successfully');
+
         return redirect(url('admin/garage-keepers'));
     }
 
     public function destroy(User $user)
     {
         $user->delete();
+
         session()->flash('success', 'admin deleted successfully');
+        
         return back();
     }
 }

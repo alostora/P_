@@ -15,7 +15,7 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="{{url('AdminDesign')}}/dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
+  folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="{{url('AdminDesign')}}/dist/css/skins/_all-skins.min.css">
   <!-- Morris chart -->
   <link rel="stylesheet" href="{{url('AdminDesign')}}/bower_components/morris.js/morris.css">
@@ -37,15 +37,17 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 
+  
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
-
+  
+  <link rel="stylesheet" href="{{url('AdminDesign')}}/myStyle.css">
 
   @if(App::getLocale() == "ar" || App::getLocale() == "")
-    <link rel="stylesheet" href="{{url('dashboard_admin_panel/bootstrap/css/bootstrap-rtl.min.css')}}">
-    <link rel="stylesheet" href="{{url('dashboard_admin_panel/dist/css1/AdminLTE-rtl.min.css')}}">
-    <link rel="stylesheet" href="{{url('dashboard_admin_panel/dist/css1/skins/_all-skins-rtl.min.css')}}">
+    <link rel="stylesheet" href="{{url('AdminDesign')}}/bootstrap/css/bootstrap-rtl.min.css">
+    <link rel="stylesheet" href="{{url('AdminDesign')}}/dist/css1/AdminLTE-rtl.min.css">
+    <link rel="stylesheet" href="{{url('AdminDesign')}}/dist/css1/skins/_all-skins-rtl.min.css">
     <?php $dir = "rtl" ?>
   @elseif(App::getLocale() == "en")
     <?php $dir = "ltr" ?> 
@@ -53,10 +55,20 @@
     <?php $dir = "rtl" ?>  
   @endif
 
+  <link href='https://fonts.googleapis.com/css?family=Cairo' rel='stylesheet'>
+    <link rel="stylesheet" href="{{url('dashboard_admin_panel/myStyle.css')}}">
+
+<script src="{{url('dashboard_admin_panel/bower_components/ckeditor/ckeditor.js')}}"></script>
+<script src="{{url('dashboard_admin_panel/bower_components/jquery/dist/jquery.min.js')}}"></script>
+
+
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini" dir={{$dir}} > 
 
-    <div class="wrapper">
+  <div class="wrapper">
     
       <header class="main-header">
         <!-- Logo -->
@@ -331,9 +343,9 @@
                 </ul>
               </li>
               <!-- Control Sidebar Toggle Button -->
-              <li>
+              <!-- <li>
                 <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-              </li>
+              </li> -->
             </ul>
           </div>
         </nav>
