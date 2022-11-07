@@ -14,9 +14,9 @@ use App\Models\Country;
 class CityController extends Controller
 {
 
-    public function index()
+    public function index(Country $country)
     {
-        $cities = Country::where('type', CountryTyps::CITY['code'])->get();
+        $cities = Country::where('governorate_id',$country->id)->where('type', CountryTyps::CITY['code'])->get();
 
         $cities = CityResource::collection($cities);
 
@@ -28,12 +28,11 @@ class CityController extends Controller
         return $country;
     }
 
-    public function create()
+    public function create(Country $country)
     {
-        $countries = Country::where('type', 0)->get(); //country
-        $governates = Country::where('type', 1)->get(); //governate
+        $governate = $country;
 
-        return view('Admin.Cities.create', compact('countries', 'governates'));
+        return view('Admin.Cities.create', compact('governate'));
     }
 
     public function store(CityCreateRequest $request)
@@ -42,22 +41,20 @@ class CityController extends Controller
         CityCreateCollection::createCity($request);
 
         session()->flash('success', 'admin created successfully');
-        return redirect(url('admin/cities'));
+        return redirect(url('admin/cities/'.$request->governorate_id));
     }
 
     public function edit(Country $country)
     {
-        $governorates = Country::where('type', 1)->get();
-        $countries = Country::where('type', 0)->get();
         $city = new CityResource($country);
-        return view('Admin.Cities.edit', compact('city', 'governorates', 'countries'));
+        return view('Admin.Cities.edit', compact('city'));
     }
 
     public function update(CityUpdateRequest $request, Country $country)
     {
         CityUpdateCollection::updateCity($request, $country);
         session()->flash('success', 'admin updated successfully');
-        return redirect(url('admin/cities'));
+        return redirect(url('admin/cities/'.$request->governorate_id));
     }
 
     public function destroy(Country $country)

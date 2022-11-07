@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admins;
 
+use App\Constants\Admin\CountryTyps;
 use App\Constants\UserTyps;
 use App\Http\Controllers\Controller;
 use App\Http\Foundations\Admins\Garage\GarageCreateCollection;
@@ -16,9 +17,9 @@ use App\Models\User;
 class GarageController extends Controller
 {
 
-    public function index()
+    public function index(Country $country)
     {
-        $garages = Garage::get();
+        $garages = Garage::where('street_id',$country->id)->get();
         $garages = GarageResource::collection($garages);
 
         return view('Admin.Garages.index', compact('garages'));
@@ -29,13 +30,9 @@ class GarageController extends Controller
         return $garage;
     }
 
-    public function create()
+    public function create(Country $country)
     {
-        $data['countries'] = Country::where('type', 0)->get(); //country
-        $data['governates'] = Country::where('type', 1)->get(); //governate
-        $data['cities'] = Country::where('type', 2)->get(); //cities
-        $data['areas'] = Country::where('type', 3)->get(); //areas
-        $data['streets'] = Country::where('type', 4)->get(); //streets
+        $data['street'] = $country;
         $data['saies'] = User::where('type', UserTyps::SAIES['code'])->get();
 
         return view('Admin.Garages.create', $data);
@@ -47,17 +44,12 @@ class GarageController extends Controller
 
         session()->flash('success', 'Street created successfully');
 
-        return redirect(url('admin/garages'));
+        return redirect(url('admin/garages/'.$request->street_id));
     }
 
     public function edit(Garage $garage)
     {
         $data['garage'] = new GarageResource($garage);
-        $data['governorates'] = Country::where('type', 1)->get();
-        $data['countries'] = Country::where('type', 0)->get();
-        $data['cities'] = Country::where('type', 2)->get();
-        $data['areas'] = Country::where('type', 3)->get();
-        $data['streets'] = Country::where('type', 4)->get();
         $data['saies'] = User::where('type', UserTyps::SAIES['code'])->get();
 
         return view('Admin.Garages.edit', $data);
@@ -66,15 +58,16 @@ class GarageController extends Controller
     public function update(GarageUpdateRequest $request, Garage $garage)
     {
         GarageUpdateCollection::updateGarage($request, $garage);
-        session()->flash('success', 'Street updated successfully');
 
-        return redirect(url('admin/garages'));
+        session()->flash('success', 'Garage updated successfully');
+
+        return redirect(url('admin/garages/'.$garage->street_id));
     }
 
     public function destroy(Garage $garage)
     {
         $garage->delete();
-        session()->flash('success', 'Street deleted successfully');
+        session()->flash('success', 'Garage deleted successfully');
 
         return back();
     }

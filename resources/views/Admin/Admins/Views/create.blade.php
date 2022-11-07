@@ -6,7 +6,7 @@
         <!-- general form elements -->
         <div class="box box-primary">
           <div class="box-header with-border">
-            <h3 class="box-title">@lang('admin.CreateAdminPage')</h3>
+            <h3 class="box-title col-md-8">@lang('general.create')</h3>
           </div>
           <!-- /.box-header -->
           <!-- form start -->
@@ -16,33 +16,33 @@
               <div class="form-group">
                 <div class="col-md-6">
 
-                    <label for="name">@lang('admin.Name')</label>
-                    <input type="text" class="form-control" name="name" id="name" placeholder="Enter Name">
+                    <label for="name">@lang('user.name')</label>
+                    <input type="text" class="form-control" name="name" id="name" placeholder="@lang('user.name')">
                 </div>
                 <div class="col-md-6">
-                    <label for="email">@lang('admin.EmailAddress')</label>
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Enter email">
+                    <label for="email">@lang('user.email')</label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="@lang('user.email')">
                 </div>
               </div>
 
               <div class="form-group">
                 <div class="col-md-6">
-                    <label for="password">@lang('admin.Password')</label>
-                    <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                    <label for="password">@lang('user.password')</label>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="@lang('user.password')">
                 </div>
                 <div class="col-md-6">
-                    <label for="confirmPassword">@lang('admin.ConfirmPassword')</label>
-                    <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" placeholder="Confim Password">
+                    <label for="confirmPassword">@lang('user.confirmPassword')</label>
+                    <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" placeholder="@lang('user.confirmPassword')">
                 </div>
               </div>
               <div class="form-group">
                 <div class="col-md-6">
-                    <label for="phone">@lang('admin.Phone')</label>
-                    <input type="text" class="form-control" name="phone" id="phone" placeholder="phone">
+                    <label for="phone">@lang('user.phone')</label>
+                    <input type="text" class="form-control" name="phone" id="phone" placeholder="@lang('user.phone')">
                 </div>
                 <div class="col-md-6">
-                    <label for="address">@lang('admin.Address')</label>
-                    <input type="text" class="form-control" name="address" id="address" placeholder="address">
+                    <label for="address">@lang('user.address')</label>
+                    <input type="text" class="form-control" name="address" id="address" placeholder="@lang('user.address')">
                 </div>
               </div>
              
@@ -50,7 +50,7 @@
             <!-- /.box-body -->
 
             <div class="box-footer">
-              <button type="submit" class="btn btn-primary">@lang('admin.Submit')</button>
+              <button type="submit" class="btn btn-primary">@lang('user.Submit')</button>
             </div>
           </form>
         </div>

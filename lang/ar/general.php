@@ -2,6 +2,8 @@
 
 return [
 
+     'app_name' => 'Parking',
+
      'page_title' => 'لوحة التحكم',
 
      'dashboard' => 'لوحة التحكم',
@@ -13,6 +15,7 @@ return [
      'search' => 'بحث',
 
 
+     'submit' => 'حفظ',
      'create' => 'اضافة',
      'update' => 'تعديل',
      'delete' => 'حذف',
@@ -21,6 +24,20 @@ return [
      'new' => 'جديد',
      'data' => 'بيانات',
      'informations' => 'معلومات',
+
+     'choose' => 'اختر',
+     'operations' => '',
+
+
+
+
+
+     //side bar
+     'admins' => 'الادمن',
+     'saies' => 'السايس',
+     'countries' => 'الدول',
+     'online' => 'متصل',
+     'home' => 'الرئيسية',
  
      
 

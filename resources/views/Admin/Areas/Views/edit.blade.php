@@ -6,7 +6,7 @@
       <!-- general form elements -->
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">@lang('admin.EditareaPage')</h3>
+          <h3 class="box-title">@lang('general.update')</h3>
         </div>
         <!-- /.box-header -->
         <!-- form start -->
@@ -14,96 +14,28 @@
           @csrf
           @method('patch')
 
+          <input type="hidden" name="country_id" value="{{$area->country_id}}">
+          <input type="hidden" name="governorate_id" value="{{$area->governorate_id}}">
+          <input type="hidden" name="city_id" value="{{$area->city_id}}">
           <input type="hidden" class="form-control" name="id" id="id" value="{{$area->id}}">
 
           <div class="box-body">
-
             <div class="form-group">
-
               <div class="col-md-6">
-                <label>@lang('admin.Countries')</label>
-                <select class="form-control" name="country_id">
-                  @if(!empty($countries))
-                    @foreach ($countries as $key=>$country)
-                      @if($area->country_id == $country->id)
-                        <option value="{{$country->id}}" selected>{{$country->nameAr}}</option>
-                      @else
-                        <option value="{{$country->id}}">{{$country->nameAr}}</option>
-                      @endif
-                    @endforeach
-                  @endif
-                </select>
-              </div>
-
-            </div>
-
-            <div class="clearfix"></div>
-
-            <div class="form-group">
-
-              <div class="col-md-6">
-                <label>@lang('admin.governorates')</label>
-                <select class="form-control" name="governorate_id">
-                  @if(!empty($governorates))
-                    @foreach ($governorates as $key=>$governorate)
-                      @if($area->governorate_id == $governorate->id)
-                        <option value="{{$governorate->id}}" selected>{{$governorate->nameAr}}</option>
-                      @else
-                        <option value="{{$governorate->id}}">{{$governorate->nameAr}}</option>
-                      @endif
-                    @endforeach
-                  @endif
-                </select>
-              </div>
-
-              <div class="col-md-6">
-                <label>@lang('admin.cities')</label>
-                <select class="form-control" name="city_id">
-                  @if(!empty($cities))
-                    @foreach ($cities as $key=>$city)
-                      @if($area->city_id == $city->id)
-                        <option value="{{$city->id}}" selected>{{$city->nameAr}}</option>
-                      @else
-                        <option value="{{$city->id}}">{{$city->nameAr}}</option>
-                      @endif
-                    @endforeach
-                  @endif
-                </select>
-              </div>
-
-            </div>
-
-            <div class="clearfix"></div>
-
-            <div class="form-group">
-
-              <div class="col-md-6">
-                <label for="nameAr">@lang('admin.NameAr')</label>
+                <label for="nameAr">@lang('country.name')</label>
                 <input type="text" class="form-control" name="nameAr" id="nameAr" value="{{$area->nameAr}}">
               </div>
-
               <div class="col-md-6">
-                <label for="nameEn">@lang('admin.NameEn')</label>
+                <label for="nameEn">@lang('country.name') En</label>
                 <input type="text" class="form-control" name="nameEn" id="nameEn" value="{{$area->nameEn}}">
               </div>
-
             </div>
-
           </div>
-          <!-- /.box-body -->
-
           <div class="box-footer">
-            <button type="submit" class="btn btn-primary">@lang('admin.Submit')</button>
+            <button type="submit" class="btn btn-primary">@lang('general.submit')</button>
           </div>
         </form>
       </div>
-      <!-- /.box -->
-
-
-
     </div>
-
   </div>
-  <!-- /.row -->
 </section>
-<!-- /.content -->

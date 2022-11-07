@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admins;
 
+use App\Constants\Admin\CountryTyps;
 use App\Http\Controllers\Controller;
 use App\Http\Foundations\Admins\Countries\Area\AreaCreateCollection;
 use App\Http\Foundations\Admins\Countries\Area\AreaUpdateCollection;
@@ -14,9 +15,9 @@ use Illuminate\Http\Request;
 class AreaController extends Controller
 {
 
-    public function index()
+    public function index(Country $country)
     {
-        $areas = Country::where('type', 3)->get();
+        $areas = Country::where('city_id',$country->id)->where('type', CountryTyps::AREA['code'])->get();
         $areas = AreaResource::collection($areas);
 
         return view('Admin.Areas.index', compact('areas'));
@@ -27,13 +28,11 @@ class AreaController extends Controller
         return $country;
     }
 
-    public function create()
+    public function create(Country $country)
     {
-        $countries = Country::where('type', 0)->get(); //country
-        $governates = Country::where('type', 1)->get(); //governate
-        $cities = Country::where('type', 2)->get(); //governate
+        $city = $country;
 
-        return view('Admin.Areas.create', compact('countries', 'governates', 'cities'));
+        return view('Admin.Areas.create', compact('city'));
     }
 
     public function store(AreaCreateRequest $request)
@@ -42,23 +41,24 @@ class AreaController extends Controller
         AreaCreateCollection::createArea($request);
 
         session()->flash('success', 'area created successfully');
-        return redirect(url('admin/areas'));
+
+        return redirect(url('admin/areas/'.$request->city_id));
     }
 
     public function edit(Country $country)
     {
-        $governorates = Country::where('type', 1)->get();
-        $countries = Country::where('type', 0)->get();
-        $cities = Country::where('type', 2)->get();
         $area = new AreaResource($country);
-        return view('Admin.Areas.edit', compact('area', 'governorates', 'countries', 'cities'));
+        
+        return view('Admin.Areas.edit', compact('area'));
     }
 
     public function update(AreaUpdateRequest $request, Country $country)
     {
         AreaUpdateCollection::updateArea($request, $country);
+
         session()->flash('success', 'area updated successfully');
-        return redirect(url('admin/areas'));
+
+        return redirect(url('admin/areas/'.$request->city_id));
     }
 
     public function destroy(Country $country)

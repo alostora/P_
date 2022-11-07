@@ -4,11 +4,11 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title col-md-8">@lang('admin.GaragesData')</h3>
+                    <h3 class="box-title col-md-8">@lang('garage.page_title')</h3>
                     <div class="col-md-4">
-                        <a href="{{url('admin/garage/create')}}" class="btn btn-primary btn-sm" style="height:25px;padding:2px;width:150px">
+                        <a href="{{url('admin/garage/create/'.Request('country')->id)}}" class="btn btn-primary btn-sm" style="height:25px;padding:2px;width:150px">
                             <i class="fa fa-plus"></i>
-                            <span>@lang('admin.Creategarage')</span>
+                            <span>@lang('general.create')</span>
                         </a>
                     </div>
                 </div>
@@ -16,9 +16,8 @@
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>@lang('admin.NAME')</th>
-                                <th>@lang('admin.nameEn')</th>
-                                <th>@lang('admin.OPERATIONS')</th>
+                                <th>@lang('garage.name')</th>
+                                <th>@lang('general.operations')</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -26,7 +25,6 @@
                                 @foreach ($garages as $key=>$garage)
                                     <tr>
                                         <td> {{$garage->nameAr}} </td>
-                                        <td> {{$garage->nameEn}} </td>
                                         <td>
                                             <a href="{{url('admin/garage/edit/'.$garage->id)}}" class="btn btn-success btn-sm">
                                                 <i class="fa fa-edit"></i>

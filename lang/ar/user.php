@@ -8,7 +8,8 @@ return [
 
     'name' => 'الأسم',
     'email' => 'الأيميل',
-    'password' => 'كلمة السر',
+    'password' => 'كلمة المرور',
+    'confirmPassword' => 'تأكيد كلمة المرور',
     'phone' => 'رقم الهاتف',
     'address' => 'العنوان',
     'longitude' => 'خط طول',

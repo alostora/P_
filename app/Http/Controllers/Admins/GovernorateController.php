@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admins;
 
+use App\Constants\Admin\CountryTyps;
 use App\Http\Controllers\Controller;
 use App\Http\Foundations\Admins\Countries\Governorate\GovernorateCreateCollection;
 use App\Http\Foundations\Admins\Countries\Governorate\GovernorateUpdateCollection;
@@ -13,9 +14,9 @@ use App\Models\Country;
 class GovernorateController extends Controller
 {
 
-    public function index()
+    public function index(Country $country)
     {
-        $governorates = Country::where('type', 1)->get();
+        $governorates = Country::where('country_id',$country->id)->where('type', CountryTyps::GOVERNORATE['code'])->get();
 
         $governorates = GovernorateResource::collection($governorates);
 
@@ -29,9 +30,7 @@ class GovernorateController extends Controller
 
     public function create()
     {
-        $countries = Country::where('type', 0)->get();
-
-        return view('Admin.Governorates.create', compact('countries'));
+        return view('Admin.Governorates.create');
     }
 
     public function store(GovernorateCreateRequest $request)
@@ -40,21 +39,21 @@ class GovernorateController extends Controller
         GovernorateCreateCollection::createGovernorate($request);
 
         session()->flash('success', 'admin created successfully');
-        return redirect(url('admin/governorates'));
+        return redirect(url('admin/governorates/'.$request->country_id));
     }
 
     public function edit(Country $country)
     {
         $countries = Country::where('type', 0)->get();
         $governorate = new GovernorateResource($country);
-        return view('Admin.Governorates.edit', compact('governorate', 'countries'));
+        return view('Admin.Governorates.edit', compact('governorate'));
     }
 
     public function update(GovernorateUpdateRequest $request, Country $country)
     {
         GovernorateUpdateCollection::updateGovernorate($request, $country);
         session()->flash('success', 'admin updated successfully');
-        return redirect(url('admin/governorates'));
+        return redirect(url('admin/governorates/'.$country->country_id));
     }
 
     public function destroy(Country $country)

@@ -1,18 +1,28 @@
 <?php
 
 return [
-    
-    'page_title' => 'garages',
-    
-    'name' => 'name',
-    'longitude' => 'longitude',
-    'latitude' => 'latitude',
-    'status' => 'status',
-    'country_id' => 'country',
-    'governorate_id' => 'governorate',
-    'city_id' => 'city',
-    'area_id' => 'area',
-    'street_id' => 'street',
-    'hourCost' => 'hour cost',
-    'carCount' => 'cars count',
+
+     'page_title' => 'لوحة التحكم',
+
+     'dashboard' => 'لوحة التحكم',
+     'home' => 'الرئيسي',
+     'langauge' => ' اللغة',
+     'profile' => 'الملف الشخصي',
+     'login' => 'تسجيل دخول',
+     'logout' => 'تسجيل خروج',
+     'search' => 'بحث',
+
+
+     'submit' => 'حفظ',
+     'create' => 'اضافة',
+     'update' => 'تعديل',
+     'delete' => 'حذف',
+     'show' => 'عرض',
+
+     'new' => 'جديد',
+     'data' => 'بيانات',
+     'informations' => 'معلومات',
+ 
+     
+
 ];

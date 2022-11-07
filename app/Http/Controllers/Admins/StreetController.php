@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admins;
 
+use App\Constants\Admin\CountryTyps;
 use App\Http\Controllers\Controller;
 use App\Http\Foundations\Admins\Countries\Street\StreetCreateCollection;
 use App\Http\Foundations\Admins\Countries\Street\StreetUpdateCollection;
@@ -13,9 +14,9 @@ use App\Models\Country;
 class StreetController extends Controller
 {
 
-    public function index()
+    public function index(Country $country)
     {
-        $streets = Country::where('type', 4)->get();
+        $streets = Country::where('area_id',$country->id)->where('type', CountryTyps::STREET['code'])->get();
         $streets = StreetResource::collection($streets);
 
         return view('Admin.Streets.index', compact('streets'));
@@ -26,14 +27,11 @@ class StreetController extends Controller
         return $country;
     }
 
-    public function create()
+    public function create(Country $country)
     {
-        $countries = Country::where('type', 0)->get(); //country
-        $governates = Country::where('type', 1)->get(); //governate
-        $cities = Country::where('type', 2)->get(); //cities
-        $areas = Country::where('type', 3)->get(); //cities
+        $area = $country;
 
-        return view('Admin.Streets.create', compact('countries', 'governates', 'cities', 'areas'));
+        return view('Admin.Streets.create', compact('area'));
     }
 
     public function store(StreetCreateRequest $request)
@@ -42,24 +40,21 @@ class StreetController extends Controller
         StreetCreateCollection::createStreet($request);
 
         session()->flash('success', 'Street created successfully');
-        return redirect(url('admin/streets'));
+
+        return redirect(url('admin/streets/'.$request->area_id));
     }
 
     public function edit(Country $country)
     {
-        $governorates = Country::where('type', 1)->get();
-        $countries = Country::where('type', 0)->get();
-        $cities = Country::where('type', 2)->get();
-        $areas = Country::where('type', 3)->get();
         $street = new StreetResource($country);
-        return view('Admin.Streets.edit', compact('street', 'governorates', 'countries', 'cities', 'areas'));
+        return view('Admin.Streets.edit', compact('street'));
     }
 
     public function update(StreetUpdateRequest $request, Country $country)
     {
         StreetUpdateCollection::updateStreet($request, $country);
         session()->flash('success', 'Street updated successfully');
-        return redirect(url('admin/streets'));
+        return redirect(url('admin/streets/'.$request->area_id));
     }
 
     public function destroy(Country $country)

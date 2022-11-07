@@ -4,11 +4,11 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title col-md-8">@lang('admin.GaragekeeperData')</h3>
+                    <h3 class="box-title col-md-8">@lang('user.page_title_saies')</h3>
                     <div class="col-md-4">
                         <a href="{{url('admin/garage-keeper/create')}}" class="btn btn-primary btn-sm" style="height:25px;padding:2px;width:150px">
                             <i class="fa fa-plus"></i>
-                            <span>@lang('admin.CreateGaragekeeper')</span>
+                            <span>@lang('general.create')</span>
                         </a>
                     </div>
                 </div>
@@ -16,11 +16,11 @@
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>@lang('admin.NAME')</th>
-                                <th>@lang('admin.EMAIL')</th>
-                                <th>@lang('admin.PHONE')</th>
-                                <th>@lang('admin.ADDRESS')</th>
-                                <th>@lang('admin.OPERATIONS')</th>
+                                <th>@lang('user.name')</th>
+                                <th>@lang('user.email')</th>
+                                <th>@lang('user.phone')</th>
+                                <th>@lang('user.address')</th>
+                                <th>@lang('general.operations')</th>
                             </tr>
                         </thead>
                         <tbody>

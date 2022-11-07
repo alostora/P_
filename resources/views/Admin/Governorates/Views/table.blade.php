@@ -4,11 +4,11 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title col-md-8">@lang('admin.governoratesData')</h3>
+                    <h3 class="box-title col-md-8">@lang('country.page_title_governorates')</h3>
                     <div class="col-md-4">
-                        <a href="{{url('admin/governorate/create')}}" class="btn btn-primary btn-sm" style="height:25px;padding:2px;width:150px">
+                        <a href="{{url('admin/governorate/create/'.Request('country')->id)}}" class="btn btn-primary btn-sm" style="height:25px;padding:2px;width:150px">
                             <i class="fa fa-plus"></i>
-                            <span>@lang('admin.Creategovernorate')</span>
+                            <span>@lang('general.create')</span>
                         </a>
                     </div>
                 </div>
@@ -16,9 +16,9 @@
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>@lang('admin.name')</th>
-                                <th>@lang('admin.nameEn')</th>
-                                <th>@lang('admin.OPERATIONS')</th>
+                                <th>@lang('country.name')</th>
+                                <th>@lang('country.city_id')</th>
+                                <th>@lang('general.operations')</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -26,7 +26,12 @@
                                 @foreach ($governorates as $key=>$governorate)
                                     <tr>
                                         <td> {{$governorate->nameAr}} </td>
-                                        <td> {{$governorate->nameEn}} </td>
+                                        <td> 
+                                            <a href="{{url('admin/cities/'.$governorate->id)}}" class="">
+                                                <i class="fa fa-info"></i>
+                                                @lang('country.city_id')
+                                            </a> 
+                                        </td>
                                         <td>
                                             <a href="{{url('admin/governorate/edit/'.$governorate->id)}}" class="btn btn-success btn-sm">
                                                 <i class="fa fa-edit"></i>

@@ -15,4 +15,5 @@ return [
     'street_id' => 'الشارع',
     'hourCost' => 'تكلفة الساعة',
     'carCount' => 'سعة الجراج',
+    'saies_id' => 'السايس',
 ];

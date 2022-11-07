@@ -6,53 +6,33 @@
         <!-- general form elements -->
         <div class="box box-primary">
           <div class="box-header with-border">
-            <h3 class="box-title">@lang('admin.createCityPage')</h3>
+            <h3 class="box-title">@lang('country.page_title_cities')</h3>
           </div>
           <!-- /.box-header -->
           <!-- form start -->
           <form role="form" action="{{url('admin/city')}}" method="POST">
             @csrf
+            <input type="hidden" name="country_id" value="{{$governate->country_id}}">
+            <input type="hidden" name="governorate_id" value="{{$governate->id}}">
+
             <div class="box-body">
               
-              <div class="form-group">
-                <div class="col-md-6">
-                  <label>@lang('admin.Countries')</label>
-                    <select class="form-control" name="country_id">
-                      @if(!empty($countries))
-                        @foreach ($countries as $key=>$country)
-                          <option value="{{$country->id}}">{{$country->nameAr}}</option>
-                        @endforeach
-                      @endif     
-                    </select>
-                </div>
-
-                <div class="col-md-6">
-                  <label>@lang('admin.governates')</label>
-                    <select class="form-control" name="governorate_id">
-                      @if(!empty($governates))
-                        @foreach ($governates as $key=>$governate)
-                          <option value="{{$governate->id}}">{{$governate->nameAr}}</option>
-                        @endforeach
-                      @endif     
-                    </select>
-                </div>
-              </div>
               <div class="clearfix"></div>
               <div class="form-group">
                 <div class="col-md-6">
-                    <label for="nameAr">@lang('admin.Name')</label>
-                    <input type="text" class="form-control" name="nameAr" id="nameAr" placeholder="Enter nameAr">
+                    <label for="nameAr">@lang('country.name')</label>
+                    <input type="text" class="form-control" name="nameAr" id="nameAr" placeholder="@lang('country.name')">
                 </div>
                 <div class="col-md-6">
-                    <label for="nameEn">@lang('admin.nameEn')</label>
-                    <input type="text" class="form-control" name="nameEn" id="nameEn" placeholder="Enter nameEn">
+                    <label for="nameEn">@lang('country.name') En</label>
+                    <input type="text" class="form-control" name="nameEn" id="nameEn" placeholder="@lang('country.name') En">
                 </div>
               </div>
             </div>
             <!-- /.box-body -->
 
             <div class="box-footer">
-              <button type="submit" class="btn btn-primary">@lang('admin.Submit')</button>
+              <button type="submit" class="btn btn-primary">@lang('general.submit')</button>
             </div>
           </form>
         </div>

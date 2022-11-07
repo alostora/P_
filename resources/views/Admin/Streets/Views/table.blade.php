@@ -4,11 +4,11 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title col-md-8">@lang('admin.StreetsData')</h3>
+                    <h3 class="box-title col-md-8">@lang('country.page_title_streets')</h3>
                     <div class="col-md-4">
-                        <a href="{{url('admin/street/create')}}" class="btn btn-primary btn-sm" style="height:25px;padding:2px;width:150px">
+                        <a href="{{url('admin/street/create/'.Request('country')->id)}}" class="btn btn-primary btn-sm" style="height:25px;padding:2px;width:150px">
                             <i class="fa fa-plus"></i>
-                            <span>@lang('admin.CreateArea')</span>
+                            <span>@lang('general.create')</span>
                         </a>
                     </div>
                 </div>
@@ -16,17 +16,22 @@
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>@lang('admin.NAME')</th>
-                                <th>@lang('admin.NAMEEN')</th>
-                                <th>@lang('admin.OPERATIONS')</th>
+                                <th>@lang('country.name')</th>
+                                <th>@lang('country.garage_id')</th>
+                                <th>@lang('general.operations')</th>
                             </tr>
                         </thead>
                         <tbody>
                             @if(!empty($streets))
                                 @foreach ($streets as $key=>$street)
                                     <tr>
-                                        <td> {{$street->nameAr}} </td>
-                                        <td> {{$street->nameEn}} </td>
+                                    <td> {{$street->nameAr}} </td>
+                                        <td> 
+                                            <a href="{{url('admin/garages/'.$street->id)}}" class="">
+                                                <i class="fa fa-info"></i>
+                                                @lang('country.garage_id')
+                                            </a> 
+                                        </td>
                                         <td>
                                             <a href="{{url('admin/street/edit/'.$street->id)}}" class="btn btn-success btn-sm">
                                                 <i class="fa fa-edit"></i>
