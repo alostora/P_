@@ -2,10 +2,11 @@
 
 namespace App\Http\Resources\Admin\Garage;
 
-use App\Models\GarageKeeper;
+use App\Http\Resources\Admin\Garage\GarageKeeperResource;
+use App\Http\Resources\Admin\Garage\GarageResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class GarageKeeperResource extends JsonResource
+class SaiesMinifiedResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,8 +19,8 @@ class GarageKeeperResource extends JsonResource
         return [
 
             'id' => $this->id,
-            'garage' => new GarageMinifiedResource($this->garage),
-            'saies' => new SaiesMinifiedResource($this->saies),
+            'name' => $this->name,
+            'phone' => $this->phone,
         ];
     }
 }

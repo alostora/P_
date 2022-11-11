@@ -17,14 +17,6 @@
   <!-- iCheck -->
   <link rel="stylesheet" href="{{url('AdminDesign')}}/plugins/iCheck/square/blue.css">
 
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  
-  <![endif]-->
-
   <link rel="stylesheet" href="{{url('AdminDesign')}}/myStyle.css">
 
   @if(App::getLocale() == "ar" || App::getLocale() == "")
@@ -43,7 +35,7 @@
 <body class="hold-transition login-page" dir="{{$dir}}">
 <div class="login-box">
   <div class="login-logo">
-    <img src="{{url('adminDesign/logo.png')}}" style="height: 170px;width:200px;">
+    <img src="{{url('adminDesign')}}/logo.png" style="height: 170px;width:200px;">
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
@@ -60,26 +52,15 @@
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
-        
-        <!-- /.col -->
         <div class="col-xs-4">
           <button type="submit" class="btn btn-primary btn-block btn-flat">@lang('general.login')</button>
         </div>
-        <!-- /.col -->
       </div>
     </form>
-
-
   </div>
-  <!-- /.login-box-body -->
 </div>
-<!-- /.login-box -->
-
-<!-- jQuery 3 -->
 <script src="{{url('AdminDesign')}}/bower_components/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
 <script src="{{url('AdminDesign')}}/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- iCheck -->
 <script src="{{url('AdminDesign')}}/plugins/iCheck/icheck.min.js"></script>
 <script>
   $(function () {

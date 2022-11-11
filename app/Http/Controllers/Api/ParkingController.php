@@ -115,13 +115,14 @@ class ParkingController extends Controller
     public function balance()
     {
         $user = auth()->guard('api')->user();
-        $parckedToday = Parking::where('saies_id', $user->id)
+        $parckedCostToday = Parking::where('saies_id', $user->id)
             ->whereBetween('ends_at', [
                 carbon::create(Carbon::today())->startOfDay(),
                 Carbon::create(Carbon::today())->endOfDay()
             ])
             ->sum('cost');
-
-        return ['current_balance' => (string)$parckedToday . " SAR"];
+        $tax = $parckedCostToday * (15/100);
+        $parckedCostToday = $parckedCostToday + $tax;
+        return ['current_balance' => (string)$parckedCostToday . " SAR"];
     }
 }

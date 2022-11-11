@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admins\AdminController;
 use App\Http\Controllers\Admins\AreaController;
+use App\Http\Controllers\Admins\AssignedGarageKeeperController;
 use App\Http\Controllers\Admins\AuthController;
 use App\Http\Controllers\Admins\CityController;
 use App\Http\Controllers\Admins\CountryController;
@@ -95,7 +96,11 @@ Route::group([
         Route::post('garage', [GarageController::class, 'store']);
         Route::patch('garage/{garage}', [GarageController::class, 'update']);
         Route::get('garage/delete/{garage}', [GarageController::class, 'destroy']);
-        Route::get('garage/sellers/{garage}', [GarageController::class, 'sellers']);
+        
+        Route::get('assigned-garage-keeper/{garage}', [AssignedGarageKeeperController::class, 'index']);
+        Route::get('assigned-garage-keeper/create/{garage}', [AssignedGarageKeeperController::class, 'create']);
+        Route::post('assigned-garage-keeper', [AssignedGarageKeeperController::class, 'store']);
+        Route::get('assigned-garage-keeper/delete/{garageKeeper}', [AssignedGarageKeeperController::class, 'destroy']);
 
         Route::get('all-parked-cars', [ParkingController::class, 'index']);
 

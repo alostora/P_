@@ -2,18 +2,15 @@
 
 namespace App\Http\Controllers\Admins;
 
-use App\Constants\Admin\CountryTyps;
 use App\Constants\UserTyps;
 use App\Http\Controllers\Controller;
 use App\Http\Foundations\Admins\Garage\GarageCreateCollection;
 use App\Http\Foundations\Admins\Garage\GarageUpdateCollection;
 use App\Http\Requests\Garage\GarageCreateRequest;
 use App\Http\Requests\Garage\GarageUpdateRequest;
-use App\Http\Resources\Admin\Garage\GarageKeeperResource;
 use App\Http\Resources\Admin\Garage\GarageResource;
 use App\Models\Country;
 use App\Models\Garage;
-use App\Models\GarageKeeper;
 use App\Models\User;
 
 class GarageController extends Controller
@@ -74,10 +71,4 @@ class GarageController extends Controller
         return back();
     }
     
-    public function sellers(Garage $garage)
-    {
-        $data['sellers'] = GarageKeeperResource::collection($garage->manySaies);
-        return $data;
-        return view('Admin.Garages.Sellers.sellers', $data);
-    }
 }

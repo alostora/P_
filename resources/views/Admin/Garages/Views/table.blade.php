@@ -27,7 +27,7 @@
                                     <tr>
                                         <td> {{$garage->nameAr}} </td>
                                         <td>
-                                            <a href="{{url('admin/garage/sellers/'.$garage->id)}}">
+                                            <a href="{{url('admin/assigned-garage-keeper/'.$garage->id)}}">
                                                 <i class="fa fa-user"></i> @lang('garage.saies_id')
                                             </a>
                                         </td>
