@@ -24,8 +24,8 @@ class StreetCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'nameAr' => 'required|unique:countries,nameAr|max:100',
-            'nameEn' => 'required|unique:countries,nameEn|max:100',
+            'nameAr' => 'required|max:100',
+            'nameEn' => 'required|max:100',
             'country_id' => 'required',
             'governorate_id' => 'required',
             'city_id' => 'required',

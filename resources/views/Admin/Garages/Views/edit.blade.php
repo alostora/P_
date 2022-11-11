@@ -46,22 +46,8 @@
               </div>
               <div class="form-group">
                   <div class="col-md-6">
-                      <label for="longitude">@lang('garage.longitude')</label>
-                      <input type="text" class="form-control" name="longitude" id="longitude" value="{{$garage->longitude}}">
-                  </div>
-                  <div class="col-md-6">
-                      <label for="latitude">@lang('garage.latitude')</label>
-                      <input type="text" class="form-control" name="latitude" id="latitude" value="{{$garage->latitude}}">
-                  </div>
-              </div>
-              <div class="form-group">
-                  <div class="col-md-6">
                       <label for="hourCost">@lang('garage.hourCost')</label>
                       <input type="text" class="form-control" name="hourCost" id="hourCost" value="{{$garage->hourCost}}">
-                  </div>
-                  <div class="col-md-6">
-                      <label for="carCount">@lang('garage.carCount')</label>
-                      <input type="text" class="form-control" name="carCount" id="carCount" value="{{$garage->carCount}}">
                   </div>
               </div>
           </div>

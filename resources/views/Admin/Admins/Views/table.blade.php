@@ -19,7 +19,6 @@
                                 <th>@lang('user.name')</th>
                                 <th>@lang('user.email')</th>
                                 <th>@lang('user.phone')</th>
-                                <th>@lang('user.address')</th>
                                 <th>@lang('general.operations')</th>
                             </tr>
                         </thead>
@@ -30,7 +29,6 @@
                                         <td> {{$admin->name}} </td>
                                         <td> {{$admin->email}} </td>
                                         <td> {{$admin->phone}} </td>
-                                        <td> {{$admin->address}} </td>
                                         <td>
                                             <a href="{{url('admin/admin/edit/'.$admin->id)}}" class="btn btn-success btn-sm">
                                                 <i class="fa fa-edit"></i>

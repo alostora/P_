@@ -43,6 +43,12 @@ class Parking extends Model
         'saies_id',
     ];
 
+    protected $casts = [
+        'starts_at' => 'datetime:Y-m-d H:00',
+
+        'ends_at' => 'datetime:Y-m-d H:00',
+    ];
+
     public function saies() : BelongsTo
     {
         return $this->belongsTo(User::class,'saies_id');

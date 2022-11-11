@@ -22,19 +22,32 @@
   <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  
   <![endif]-->
 
+  <link rel="stylesheet" href="{{url('AdminDesign')}}/myStyle.css">
+
+  @if(App::getLocale() == "ar" || App::getLocale() == "")
+    <link rel="stylesheet" href="{{url('AdminDesign')}}/bootstrap/css/bootstrap-rtl.min.css">
+    <link rel="stylesheet" href="{{url('AdminDesign')}}/dist/css1/AdminLTE-rtl.min.css">
+    <link rel="stylesheet" href="{{url('AdminDesign')}}/dist/css1/skins/_all-skins-rtl.min.css">
+    <?php $dir = "rtl" ?>
+  @elseif(App::getLocale() == "en")
+    <?php $dir = "ltr" ?> 
+  @else
+    <?php $dir = "rtl" ?>  
+  @endif
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" dir="{{$dir}}">
 <div class="login-box">
   <div class="login-logo">
-    <a href="{{url('AdminDesign')}}/index2.html"><b>Parking</b>admin</a>
+    <img src="{{url('adminDesign/logo.png')}}" style="height: 170px;width:200px;">
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Sign in to start your session</p>
+    <p class="login-box-msg">@lang('general.login') @lang('general.dashboard')</p>
 
     <form action="{{url('admin/login')}}" method="post">
       @csrf
@@ -47,25 +60,15 @@
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
-        <div class="col-xs-8">
-          <div class="checkbox icheck">
-            <label>
-              <input type="checkbox">@lang('admin.RememberMe')
-            </label>
-          </div>
-        </div>
+        
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">@lang('admin.SignIn')</button>
+          <button type="submit" class="btn btn-primary btn-block btn-flat">@lang('general.login')</button>
         </div>
         <!-- /.col -->
       </div>
     </form>
 
-    <!-- /.social-auth-links -->
-
-    <a href="#">@lang('admin.I forgot my password')</a><br>
-    <a href="register.html" class="text-center">@lang('admin.Register a new membership')</a>
 
   </div>
   <!-- /.login-box-body -->

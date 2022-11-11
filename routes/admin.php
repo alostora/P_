@@ -95,6 +95,7 @@ Route::group([
         Route::post('garage', [GarageController::class, 'store']);
         Route::patch('garage/{garage}', [GarageController::class, 'update']);
         Route::get('garage/delete/{garage}', [GarageController::class, 'destroy']);
+        Route::get('garage/sellers/{garage}', [GarageController::class, 'sellers']);
 
         Route::get('all-parked-cars', [ParkingController::class, 'index']);
 

@@ -3,7 +3,6 @@
 return [
 
     'page_title' => 'الجراجات',
-
     'name' => 'الاسم',
     'longitude' => 'خط طول',
     'latitude' => 'دائرة عرض',
@@ -15,5 +14,5 @@ return [
     'street_id' => 'الشارع',
     'hourCost' => 'تكلفة الساعة',
     'carCount' => 'سعة الجراج',
-    'saies_id' => 'السايس',
+    'saies_id' => 'البائع',
 ];

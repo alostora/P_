@@ -8,6 +8,7 @@ use App\Http\Foundations\Admins\GarageKeeper\GarageKeeperUpdateCollection;
 use App\Http\Requests\GarageKeeper\GarageKeeperCreateRequest;
 use App\Http\Requests\GarageKeeper\GarageKeeperUpdateRequest;
 use App\Http\Resources\UserResource;
+use App\Models\Garage;
 use App\Models\User;
 
 class GarageKeeperController extends Controller
@@ -29,7 +30,8 @@ class GarageKeeperController extends Controller
 
     public function create()
     {
-        return view('Admin.GarageKeeper.create');
+        $data['garages'] = Garage::get();
+        return view('Admin.GarageKeeper.create',$data);
     }
 
     public function store(GarageKeeperCreateRequest $request)
@@ -43,9 +45,11 @@ class GarageKeeperController extends Controller
 
     public function edit(User $user)
     {
-        $garageKeepers = new UserResource($user);
+        
+        $data['garages'] = Garage::get();
+        $data['user'] = new UserResource($user);
 
-        return view('Admin.GarageKeeper.edit', compact('user'));
+        return view('Admin.GarageKeeper.edit', $data);
     }
 
     public function update(GarageKeeperUpdateRequest $request, User $user)

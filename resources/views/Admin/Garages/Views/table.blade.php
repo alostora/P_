@@ -17,6 +17,7 @@
                         <thead>
                             <tr>
                                 <th>@lang('garage.name')</th>
+                                <th>@lang('garage.saies_id')</th>
                                 <th>@lang('general.operations')</th>
                             </tr>
                         </thead>
@@ -25,6 +26,11 @@
                                 @foreach ($garages as $key=>$garage)
                                     <tr>
                                         <td> {{$garage->nameAr}} </td>
+                                        <td>
+                                            <a href="{{url('admin/garage/sellers/'.$garage->id)}}">
+                                                <i class="fa fa-user"></i> @lang('garage.saies_id')
+                                            </a>
+                                        </td>
                                         <td>
                                             <a href="{{url('admin/garage/edit/'.$garage->id)}}" class="btn btn-success btn-sm">
                                                 <i class="fa fa-edit"></i>

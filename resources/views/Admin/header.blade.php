@@ -87,13 +87,15 @@
     
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
-            
+            {{--
+              
               @if(App::getLocale()=='en')
                 <li class="active"><a href="{{url('admin/lang/ar')}}"><i class="fa fa-flag"></i> عربي</a></li>
               @else
                 <li class="active"><a href="{{url('admin/lang/en')}}"><i class="fa fa-flag-o"></i> en</a></li>
               @endif
 
+            --}}
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <img src="{{url('AdminDesign')}}/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
@@ -111,11 +113,8 @@
                   </li>
 
                   <li class="user-footer">
-                    <div class="pull-left">
-                      <a href="#" class="btn btn-default btn-flat">@lang('admin.profile')</a>
-                    </div>
                     <div class="pull-right">
-                      <a href="{{url('admin/logOut')}}" class="btn btn-default btn-flat">@lang('admin.signOut')</a>
+                      <a href="{{url('admin/logOut')}}" class="btn btn-default btn-flat">@lang('general.logout')</a>
                     </div>
                   </li>
                 </ul>

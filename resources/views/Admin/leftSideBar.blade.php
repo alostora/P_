@@ -37,7 +37,6 @@
           <li class=""><a href="{{url('admin/admins')}}"><i class="fa fa-circle-o"></i>@lang('general.admins') </a></li>
           <li class=""><a href="{{url('admin/garage-keepers')}}"><i class="fa fa-circle-o"></i>@lang('general.saies')</a></li>
           <li class=""><a href="{{url('admin/countries')}}"><i class="fa fa-circle-o"></i>@lang('general.countries')</a></li>
-          <li class=""><a href="{{url('admin/countries')}}"><i class="fa fa-circle-o"></i>@lang('general.countries')</a></li>
           <li class=""><a href="{{url('admin/all-parked-cars')}}"><i class="fa fa-circle-o"></i>@lang('general.parked_cars')</a></li>
         </ul>
       </li>

@@ -45,6 +45,16 @@
                   <label for="identificationNumber">@lang('user.identificationNumber')</label>
                   <input type="text" class="form-control" name="identificationNumber" id="identificationNumber" placeholder="@lang('user.identificationNumber')">
               </div>
+              <div class="col-md-6">
+                  <label>@lang('user.garage_id')</label>
+                    <select class="form-control" name="garage_id">
+                      @if(!empty($garages))
+                        @foreach ($garages as $key=>$garage)
+                          <option value="{{$garage->id}}">{{$garage->nameAr}}</option>
+                        @endforeach
+                      @endif     
+                    </select>
+                </div>
             </div>
           </div>
           <div class="box-footer">

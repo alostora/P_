@@ -6,8 +6,7 @@ return [
     'page_title_governorates' => 'المحافظات',
     'page_title_cities' => 'المدن',
     'page_title_areas' => 'الاحياء',
-    'page_title_streets' => 'الاحياء',
-
+    'page_title_streets' => 'الشوارع',
     'name' => 'الاسم',
     'longitude' => 'خط طول',
     'latitude' => 'دائرة عرض',

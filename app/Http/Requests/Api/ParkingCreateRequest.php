@@ -24,11 +24,12 @@ class ParkingCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            "clientName" => "required|string",
-            "clientCarNumber" => "required|string",
-            "clientIdentificationNumber" => "required|string",
-            "licenceNumber" => "required|string",
-            "clientPhone" => "required|string",
+            "clientName" => "nullable|string|max:20",
+            "clientCarNumber" => "nullable|string",
+            "clientIdentificationNumber" => "nullable|string|max:20",
+            "licenceNumber" => "nullable|string|max:20",
+            "clientPhone" => "nullable|string|max:20",
+            "type" => "required|in:0,1,2",
         ];
     }
 }

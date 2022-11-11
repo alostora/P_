@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Api;
 
+use App\Constants\Api\ParkingTypes;
 use App\Http\Resources\Admin\Garage\GarageMinifiedResource;
 use App\Http\Resources\UserMinifiedResource;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -16,8 +17,10 @@ class ParkingResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
-            
+        
+
+        $resource =  [
+
             'id' => $this->id,
 
             'clientName' => $this->clientName,
@@ -29,10 +32,10 @@ class ParkingResource extends JsonResource
             'licenceNumber' => $this->licenceNumber,
 
             'clientPhone' => $this->clientPhone,
-            
+
             'code' => $this->code,
 
-            'costType' => $this->costType,
+            'type' => ParkingTypes::TYPE_LIST[$this->type ?? 0],
 
             'cost' => $this->cost,
 
@@ -47,5 +50,41 @@ class ParkingResource extends JsonResource
             'garage' => new GarageMinifiedResource($this->garage),
 
         ];
+
+
+        $id = PHP_EOL .'parking number : ' . $this->id . PHP_EOL ;
+
+        $company_name = 'Valet & Parking Management' . PHP_EOL;
+
+        $tax_registar = 'VAT No. : 311279813600003'. PHP_EOL;
+
+        $starts_at = 'Entry Date : ' . date('Y-m-d H:i',strtotime($this->starts_at)). PHP_EOL;
+
+        $ends_at = 'Exit Date : ' . date('Y-m-d H:i',strtotime($this->ends_at)). PHP_EOL;
+
+        $cost = 'Cost : ' . $this->cost . " SAR" . PHP_EOL;
+
+        $vat = 'Vat : ' . ($this->cost * 15/100) . " SAR" . PHP_EOL;
+
+        $total = 'Total : ' . ($this->cost + ($this->cost * 15/100)) . " SAR" . PHP_EOL;
+
+        $web = 'https://vpmsystems.com'. PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL;
+
+        if($this->ends_at != null){
+
+            
+            $invoice = PHP_EOL . 'Invoice No.: : ' . $this->id . PHP_EOL;
+            $id = 'parking number : ' . $this->id . PHP_EOL ;
+
+            $resource['print_text'] = $invoice . $id . $company_name . $tax_registar . $starts_at . $cost . $vat . $total . $web;
+
+        }else{
+
+            $resource['print_text'] = $id . $company_name . $tax_registar . $starts_at . $ends_at . $web;
+
+        }
+
+        return $resource;
+
     }
 }

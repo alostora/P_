@@ -25,6 +25,12 @@ Route::group(['middleware'=>'auth_api'],function(){
     
     Route::post('parked-car',[ParkingController::class,'store']);
 
+    Route::get('parked-car/{parking}',[ParkingController::class,'show']);
+
+    Route::patch('parked-car/{parking}',[ParkingController::class,'endParking']);
+
+    Route::get('balance',[ParkingController::class,'balance']);
+
     Route::any('logout',[AuthController::class,'logout']);
 
 });

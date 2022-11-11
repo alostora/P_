@@ -27,19 +27,20 @@ return [
 
      'choose' => 'اختر',
      'operations' => '',
-
-
-
-
-
+     
      //side bar
      'home' => 'الرئيسية',
      'online' => 'متصل',
      'admins' => 'الادمن',
-     'saies' => 'السايس',
+     'saies' => 'البائع',
      'countries' => 'الدول',
      'parked_cars' => 'الركنات',
- 
-     
+
+     //dashboard
+     'carCount' => 'عدد السيارات',
+     'saiesCount' => 'عدد البائعين',
+     'totalTodayIncom' => 'دخل اليوم',
+     'totalMonthIncom' => 'دخل الشهر',
+     'totalYearIncom' => 'دخل السنة',
 
 ];

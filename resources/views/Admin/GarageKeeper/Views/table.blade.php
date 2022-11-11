@@ -17,9 +17,7 @@
                         <thead>
                             <tr>
                                 <th>@lang('user.name')</th>
-                                <th>@lang('user.email')</th>
                                 <th>@lang('user.phone')</th>
-                                <th>@lang('user.address')</th>
                                 <th>@lang('general.operations')</th>
                             </tr>
                         </thead>
@@ -28,9 +26,7 @@
                                 @foreach ($garageKeepers as $key=>$garagekeeper)
                                     <tr>
                                         <td> {{$garagekeeper->name}} </td>
-                                        <td> {{$garagekeeper->email}} </td>
                                         <td> {{$garagekeeper->phone}} </td>
-                                        <td> {{$garagekeeper->address}} </td>
                                         <td>
                                             <a href="{{url('admin/garage-keeper/edit/'.$garagekeeper->id)}}" class="btn btn-success btn-sm">
                                                 <i class="fa fa-edit"></i>

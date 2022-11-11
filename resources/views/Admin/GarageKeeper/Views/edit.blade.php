@@ -49,6 +49,17 @@
                       <label for="identificationNumber">@lang('user.identificationNumber')</label>
                       <input type="identificationNumber" class="form-control" name="identificationNumber" id="identificationNumber" value="{{$user->identificationNumber}}" >
                   </div>
+                  
+                <div class="col-md-6">
+                    <label>@lang('user.garage_id')</label>
+                    <select class="form-control" name="garage_id">
+                      @if(!empty($garages))
+                        @foreach ($garages as $key=>$garage)
+                          <option value="{{$garage->id}}" {{$user->garage && $user->garage->garage_id == $garage->id ? "selected" : ""}}>{{$garage->nameAr}}</option>
+                        @endforeach
+                      @endif     
+                    </select>
+                </div>
               </div>
           </div>
           <div class="box-footer">

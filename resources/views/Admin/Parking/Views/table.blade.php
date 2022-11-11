@@ -13,14 +13,11 @@
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>@lang('parking.clientName')</th>
-                                <th>@lang('parking.clientCarNumber')</th>
-                                <th>@lang('parking.clientIdentificationNumber')</th>
-                                <th>@lang('parking.licenceNumber')</th>
-                                <th>@lang('parking.clientPhone')</th>
-                                <th>@lang('parking.code')</th>
-                                <th>@lang('parking.costType')</th>
+                                <th>#</th>
+                                <th>@lang('parking.type')</th>
                                 <th>@lang('parking.cost')</th>
+                                <th>@lang('parking.vat')</th>
+                                <th>@lang('parking.total')</th>
                                 <th>@lang('parking.starts_at')</th>
                                 <th>@lang('parking.ends_at')</th>
                                 <th>@lang('parking.saies_id')</th>
@@ -31,18 +28,15 @@
                             @if(!empty($parking))
                                 @foreach ($parking as $key=>$park)
                                     <tr>
-                                        <td> {{$park->clientName}} </td>
-                                        <td> {{$park->clientCarNumber}} </td>
-                                        <td> {{$park->clientIdentificationNumber}} </td>
-                                        <td> {{$park->licenceNumber}} </td>
-                                        <td> {{$park->clientPhone}} </td>
-                                        <td> {{$park->code}} </td>
-                                        <td> {{$park->costType}} </td>
+                                        <td> {{$park->id}} </td>
+                                        <td> {{App\Constants\Api\ParkingTypes::TYPE_LIST[$park->type ? $park->type : 1]['name_ar']}} </td>
                                         <td> {{$park->cost}} </td>
+                                        <td> {{$park->cost * 15/100}} </td>
+                                        <td> {{($park->cost * 15/100) + $park->cost}} </td>
                                         <td> {{$park->starts_at}} </td>
                                         <td> {{$park->ends_at}} </td>
-                                        <td> {{$park->saies_id}} </td>
-                                        <td> {{$park->garage_id}} </td>
+                                        <td> {{$park->saies->name}} </td>
+                                        <td> {{$park->garage->nameAr}} </td>
                                     </tr>
                                 @endforeach
                             @endif

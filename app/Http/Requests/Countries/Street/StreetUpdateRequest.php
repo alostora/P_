@@ -26,8 +26,8 @@ class StreetUpdateRequest extends FormRequest
     {
         return [
             'id' => 'required',
-            'nameAr' => 'required|unique:countries,nameAr,' . $request->id . '|max:100',
-            'nameEn' => 'required|unique:countries,nameEn,' . $request->id . '|max:100',
+            'nameAr' => 'required|max:100',
+            'nameEn' => 'required|max:100',
             'governorate_id' => 'required',
             'city_id' => 'required',
             'area_id' => 'required',

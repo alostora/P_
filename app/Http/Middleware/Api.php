@@ -21,7 +21,7 @@ class Api
         }else{
             $data['status'] = false;
             $data['message'] = "plz_login";
-            return response($data);
+            return response($data,401);
         }
     }
 }
