@@ -9,19 +9,19 @@
                         <form style="margin: 20px;">
                             <div class="form-group co">
                                 <div class="col-md-4">
-                                    <label>Date from:</label>
+                                    <label>@lang('parking.starts_at') :</label>
                                     <div class="input-group">
                                         <input type="date" class="form-control" name="date_from" value="{{!empty(Request('date_from')) ? Request('date_from'):''}}">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <label>Date to:</label>
+                                    <label>@lang('parking.ends_at') :</label>
                                     <div class="input-group">
                                         <input type="date" class="form-control" name="date_to" value="{{!empty(Request('date_to')) ? Request('date_to'):''}}">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <label>Sesrch</label>
+                                    <label>@lang('general.search')</label>
                                     <div class="input-group">
                                         <button class="btn btn-success"> <i class="fa fa-search"></i> </button>
                                     </div>
@@ -37,8 +37,6 @@
                                 <th>#</th>
                                 <th>@lang('parking.type')</th>
                                 <th>@lang('parking.cost')</th>
-                                <th>@lang('parking.vat')</th>
-                                <th>@lang('parking.total')</th>
                                 <th>@lang('parking.starts_at')</th>
                                 <th>@lang('parking.ends_at')</th>
                                 <th>@lang('parking.saies_id')</th>
@@ -52,8 +50,6 @@
                                         <td> {{$park->id}} </td>
                                         <td> {{App\Constants\Api\ParkingTypes::TYPE_LIST[$park->type ? $park->type : 1]['name_ar']}} </td>
                                         <td> {{$park->cost}} </td>
-                                        <td> {{$park->cost * 15/100}} </td>
-                                        <td> {{($park->cost * 15/100) + $park->cost}} </td>
                                         <td> {{$park->starts_at}} </td>
                                         <td> {{$park->ends_at}} </td>
                                         <td> {{$park->saies->name}} </td>
