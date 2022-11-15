@@ -29,13 +29,13 @@
   <link rel="stylesheet" href="{{url('AdminDesign')}}/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 
   <!-- DataTables -->
-  <link rel="stylesheet" href="{{url('AdminDesign')}}/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
+  <!-- <link rel="stylesheet" href="{{url('AdminDesign')}}/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css"> -->
+  
+  
+  <!-- DataTables -->
+  <link rel="stylesheet" href="{{url('AdminDesign')}}/lte3/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="{{url('AdminDesign')}}/lte3/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="{{url('AdminDesign')}}/lte3/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 
   
   <!-- Google Font -->
@@ -56,10 +56,10 @@
   @endif
 
   <link href='https://fonts.googleapis.com/css?family=Cairo' rel='stylesheet'>
-    <link rel="stylesheet" href="{{url('dashboard_admin_panel/myStyle.css')}}">
+    <link rel="stylesheet" href="{{url('AdminDesign/myStyle.css')}}">
 
-<script src="{{url('dashboard_admin_panel/bower_components/ckeditor/ckeditor.js')}}"></script>
-<script src="{{url('dashboard_admin_panel/bower_components/jquery/dist/jquery.min.js')}}"></script>
+<script src="{{url('AdminDesign/bower_components/ckeditor/ckeditor.js')}}"></script>
+<script src="{{url('AdminDesign/bower_components/jquery/dist/jquery.min.js')}}"></script>
 
 
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />

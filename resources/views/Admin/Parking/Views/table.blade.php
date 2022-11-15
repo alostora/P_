@@ -4,9 +4,30 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title col-md-8">@lang('parking.page_title')</h3>
-                    <div class="col-md-4">
-                       
+                    <h3 class="box-title col-md-6">@lang('parking.page_title')</h3>
+                    <div class="col-md-6">
+                        <form style="margin: 20px;">
+                            <div class="form-group co">
+                                <div class="col-md-4">
+                                    <label>Date from:</label>
+                                    <div class="input-group">
+                                        <input type="date" class="form-control" name="date_from" value="{{!empty(Request('date_from')) ? Request('date_from'):''}}">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label>Date to:</label>
+                                    <div class="input-group">
+                                        <input type="date" class="form-control" name="date_to" value="{{!empty(Request('date_to')) ? Request('date_to'):''}}">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label>Sesrch</label>
+                                    <div class="input-group">
+                                        <button class="btn btn-success"> <i class="fa fa-search"></i> </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <div class="box-body">

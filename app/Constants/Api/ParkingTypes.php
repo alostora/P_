@@ -17,7 +17,7 @@ class ParkingTypes
         'prefix' => "VALET_PARKING",
         'name' => "valet parking",
         'name_ar' => "valet parking",
-        'price' => 150,
+        'price' => 175,
     ];
 
     public const VIP_RKING = [
@@ -25,7 +25,7 @@ class ParkingTypes
         'prefix' => "VIP_RKING",
         'name' => "vip parking",
         'name_ar' => "vip parking",
-        'price' => 300,
+        'price' => 350,
     ];
     
     public const PER_HOUR = [

@@ -5,7 +5,6 @@
   </h1>
 </section>
 <section class="content">
-  @if(Auth::check())
     <div class="row">
       <div class="col-lg-6 col-xs-6">
         <div class="small-box bg-success">
@@ -36,9 +35,7 @@
           <div class="inner">
             <h3>
               <span style="margin-left: 5%;">{{isset($totalTodayIncom) ? $totalTodayIncom:0}}</span>
-              <span style="font-size: 15px;">
-                VAT : {{isset($totalTodayIncom) ? round(($totalTodayIncom*15/100),2) : 0}}
-              </span>
+              
             </h3>
             <p>@lang('general.totalTodayIncom')</p>
           </div>
@@ -52,9 +49,7 @@
             <div class="inner">
               <h3>
                 <span style="margin-left: 5%;">{{isset($totalMonthIncom)?$totalMonthIncom:0}}</span>
-                <span style="font-size: 15px;">
-                  VAT : {{isset($totalMonthIncom) ? round(($totalMonthIncom*15/100),2) : 0}}
-                </span>
+                
               </h3>
               <p>@lang('general.totalMonthIncom')</p>
             </div>
@@ -68,9 +63,6 @@
           <div class="inner">
             <h3>
               <span style="margin-left: 5%;">{{isset($totalYearIncom)?$totalYearIncom:0}}</span>
-                <span style="font-size: 15px;">
-                  VAT : {{isset($totalYearIncom) ? round(($totalYearIncom*15/100),2) : 0}}
-                </span>
             </h3>
             <p>@lang('general.totalYearIncom')</p>
           </div>
@@ -80,5 +72,4 @@
         </div>
       </div>
     </div>
-  @endif
 </section>
