@@ -64,9 +64,9 @@ class ParkingResource extends JsonResource
 
         $cost = 'Cost : ' . $this->cost . " SAR" . PHP_EOL;
 
-        $vat = 'Vat : ' . ($this->cost * 15/100) . " SAR" . PHP_EOL;
+        //$vat = 'Vat : ' . ($this->cost * 15/100) . " SAR" . PHP_EOL;
 
-        $total = 'Total : ' . ($this->cost + ($this->cost * 15/100)) . " SAR" . PHP_EOL;
+        $total = 'Total : ' . $this->cost . " SAR" . PHP_EOL;
 
         $web = 'https://vpmsystems.com'. PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL;
 
@@ -76,7 +76,7 @@ class ParkingResource extends JsonResource
             $invoice = PHP_EOL . 'Invoice No.: : ' . $this->id . PHP_EOL;
             $id = 'parking number : ' . $this->id . PHP_EOL ;
 
-            $resource['print_text'] = $invoice . $id . $company_name . $tax_registar . $starts_at . $ends_at  . $cost . $vat . $total . $web;
+            $resource['print_text'] = $invoice . $id . $company_name . $tax_registar . $starts_at . $ends_at  . $cost . $total . $web;
 
         }else{
 
