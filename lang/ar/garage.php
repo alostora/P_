@@ -2,7 +2,7 @@
 
 return [
 
-    'page_title' => 'الجراجات',
+    'page_title' => 'المواقف',
     'name' => 'الاسم',
     'longitude' => 'خط طول',
     'latitude' => 'دائرة عرض',
@@ -13,6 +13,6 @@ return [
     'area_id' => 'الحي',
     'street_id' => 'الشارع',
     'hourCost' => 'تكلفة الساعة',
-    'carCount' => 'سعة الجراج',
+    'carCount' => 'سعة الموقف',
     'saies_id' => 'البائع',
 ];
