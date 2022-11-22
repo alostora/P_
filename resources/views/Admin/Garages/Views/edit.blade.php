@@ -11,18 +11,18 @@
 
           @method('patch')
           
-          <input type="hidden" name="country_id" value="{{$garage->country_id}}">
-          <input type="hidden" name="governorate_id" value="{{$garage->governorate_id}}">
-          <input type="hidden" name="city_id" value="{{$garage->city_id}}">
-          <input type="hidden" name="area_id" value="{{$garage->area_id}}">
-          <input type="hidden" name="street_id" value="{{$garage->street_id}}">
-          <input type="hidden" name="id" value="{{$garage->id}}">
+          <input type="hidden" name="country_id" value="{{$garage->country_id}}" required>
+          <input type="hidden" name="governorate_id" value="{{$garage->governorate_id}}" required>
+          <input type="hidden" name="city_id" value="{{$garage->city_id}}" required>
+          <input type="hidden" name="area_id" value="{{$garage->area_id}}" required>
+          <input type="hidden" name="street_id" value="{{$garage->street_id}}" required>
+          <input type="hidden" name="id" value="{{$garage->id}}" required>
 
           <div class="box-body">
             <div class="form-group">
               <div class="col-md-6">
                 <label>@lang('garage.saies_id')</label>
-                  <select class="form-control" name="saies_id">
+                  <select class="form-control" name="saies_id" required>
                     @if(!empty($saies))
                       @foreach ($saies as $key=>$oneSaies)
                         <option value="{{$oneSaies->id}}" {{$garage->saies_id == $oneSaies->id ? "selected" : ""}}>
@@ -37,18 +37,32 @@
               <div class="form-group">
                   <div class="col-md-6">
                       <label for="nameAr">@lang('garage.name')</label>
-                      <input type="text" class="form-control" name="nameAr" id="nameAr" value="{{$garage->nameAr}}">
+                      <input type="text" class="form-control" name="nameAr" id="nameAr" value="{{$garage->nameAr}}" required>
                   </div>
                   <div class="col-md-6">
                       <label for="nameEn">@lang('garage.name') En</label>
-                      <input type="text" class="form-control" name="nameEn" id="nameEn" value="{{$garage->nameEn}}">
+                      <input type="text" class="form-control" name="nameEn" id="nameEn" value="{{$garage->nameEn}}" required>
                   </div>
               </div>
               <div class="form-group">
                   <div class="col-md-6">
                       <label for="hourCost">@lang('garage.hourCost')</label>
-                      <input type="text" class="form-control" name="hourCost" id="hourCost" value="{{$garage->hourCost}}">
+                      <input type="text" class="form-control" name="hourCost" id="hourCost" value="{{$garage->hourCost}}" required>
                   </div>
+                <div class="col-md-6">
+                    <label for="vipCost">@lang('garage.vipCost')</label>
+                    <input type="number" class="form-control" name="vipCost" id="vipCost" value="{{$garage->vipCost}}" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-md-6">
+                    <label for="valetCost">@lang('garage.valetCost')</label>
+                    <input type="number" class="form-control" name="valetCost" id="valetCost" value="{{$garage->valetCost}}" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="fineCost">@lang('garage.fineCost')</label>
+                    <input type="number" class="form-control" name="fineCost" id="fineCost" value="{{$garage->fineCost}}" required>
+                </div>
               </div>
           </div>
           <div class="box-footer">

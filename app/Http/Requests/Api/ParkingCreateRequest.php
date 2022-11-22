@@ -29,7 +29,7 @@ class ParkingCreateRequest extends FormRequest
             "clientIdentificationNumber" => "nullable|string|max:20",
             "licenceNumber" => "nullable|string|max:20",
             "clientPhone" => "nullable|string|max:20",
-            "type" => "required|in:0,1,2",
+            "type" => "required|in:0,1,2,3",
         ];
     }
 }

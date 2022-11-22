@@ -27,7 +27,7 @@ Route::group(['middleware'=>'auth_api'],function(){
 
     Route::get('parked-car/{parking}',[ParkingController::class,'show']);
 
-    Route::patch('parked-car/{parking}',[ParkingController::class,'endParking']);
+    Route::patch('parked-car/{parkingCode}',[ParkingController::class,'endParking']);
 
     Route::get('balance',[ParkingController::class,'balance']);
 

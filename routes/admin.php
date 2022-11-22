@@ -107,6 +107,7 @@ Route::group([
         Route::get('seller-accountants/close-account', [SellerAccountantsController::class, 'closeAccount']);
 
         Route::get('all-parked-cars', [ParkingController::class, 'index']);
+        Route::get('open-parking-cars', [ParkingController::class, 'openParkeing']);
 
         Route::any('logOut', [AuthController::class, 'logOut']);
     });

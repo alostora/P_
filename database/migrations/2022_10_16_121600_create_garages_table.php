@@ -25,9 +25,15 @@ return new class extends Migration
 
             $table->string('latitude')->nullable();
 
-            $table->string('hourCost')->nullable();
+            $table->integer('hourCost')->default(0);
 
-            $table->string('carCount')->nullable();
+            $table->integer('vipCost')->default(0);
+
+            $table->integer('valetCost')->default(0);
+
+            $table->integer('fineCost')->default(0);
+
+            $table->integer('carCount')->default(0);
             
             $table->string('status')->nullable(); //avl,not avl
             

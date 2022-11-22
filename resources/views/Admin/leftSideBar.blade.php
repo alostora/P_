@@ -55,6 +55,11 @@
             </a>
           </li>
           <li>
+            <a href="{{url('admin/open-parking-cars')}}">
+              <i class="fa fa-circle-o"></i>@lang('general.open_parking')
+            </a>
+          </li>
+          <li>
             <a href="{{url('admin/seller-accountants')}}">
               <i class="fa fa-circle-o"></i>@lang('general.seller_accountants')
             </a>

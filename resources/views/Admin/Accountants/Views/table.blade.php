@@ -13,12 +13,13 @@
                             <div class="row">
                                 <div class="col-xs-3">
                                     <select class="form-control select2 input-md" name="saies_id">
-                                        @if (!empty($saies))
-                                        @foreach ($saies as $oneSaies )
-                                        <option value="{{$oneSaies->id}}" {{ !empty(Request('saies_id')) && Request('saies_id') == $oneSaies->id ? 'selected' : '' }}>
-                                            {{$oneSaies->name . " : " .$oneSaies->phone }}
-                                        </option>
-                                        @endforeach
+                                        <option value="">@lang('general.all')</option>
+                                        @if(!empty($saies))
+                                            @foreach ($saies as $oneSaies )
+                                                <option value="{{$oneSaies->id}}" {{ !empty(Request('saies_id')) && Request('saies_id') == $oneSaies->id ? 'selected' : '' }}>
+                                                    {{$oneSaies->name . " : " .$oneSaies->phone }}
+                                                </option>
+                                            @endforeach
                                         @endif
                                     </select>
                                 </div>

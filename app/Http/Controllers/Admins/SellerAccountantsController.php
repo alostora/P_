@@ -19,25 +19,27 @@ class SellerAccountantsController extends Controller
 
         $saies = User::where('type', UserTyps::SAIES['code'])->get();
 
-        $parking = Parking::where('saies_id', $request->get('saies_id'))
-
-            ->where('accountantsStatus', $request->get('accountantsStatus'))
+        $parking = Parking::where('accountantsStatus', $request->get('accountantsStatus'))
 
             ->where(function ($q) use ($request) {
+
+                if (!empty($request->get('saies_id'))) {
+                    $q->where('saies_id', $request->get('saies_id'));
+                }
 
                 if (!empty($request->get('date_from')) && !empty($request->get('date_to'))) {
 
                     $q->whereBetween('ends_at', [
-                            Carbon::create($request->get('date_from'))->startOfDay(),
-                            Carbon::create($request->get('date_to'))->endOfDay()
-                        ]);
+                        Carbon::create($request->get('date_from'))->startOfDay(),
+                        Carbon::create($request->get('date_to'))->endOfDay()
+                    ]);
                 }
 
                 if (!empty($request->get('date_from')) && empty($request->get('date_to'))) {
                     $q->whereBetween('ends_at', [
-                            Carbon::create($request->get('date_from'))->startOfDay(),
-                            Carbon::create(Carbon::now())->endOfDay()
-                        ]);
+                        Carbon::create($request->get('date_from'))->startOfDay(),
+                        Carbon::create(Carbon::now())->endOfDay()
+                    ]);
                 }
             })->get();
 
@@ -52,10 +54,9 @@ class SellerAccountantsController extends Controller
         $parking_ids = json_decode($request->get('parking_ids'));
 
         Parking::whereIn('id', $parking_ids)->update(['accountantsStatus' => 1]);
-        
+
         session()->flash('success', 'user account closed successfully');
 
         return back();
-
     }
 }

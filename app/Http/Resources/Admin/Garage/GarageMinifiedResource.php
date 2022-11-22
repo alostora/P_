@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Admin\Garage;
 
+use App\Constants\Api\ParkingTypes;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class GarageMinifiedResource extends JsonResource
@@ -14,7 +15,8 @@ class GarageMinifiedResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
+
+        $resource = [
 
             'id' => $this->id,
             'nameAr' => $this->nameAr,
@@ -24,5 +26,21 @@ class GarageMinifiedResource extends JsonResource
             'city_id' => $this->city_id,
             'area_id' => $this->area_id,
         ];
+
+
+        $resource['valet_parking'] = ParkingTypes::VALET_PARKING;
+        $resource['valet_parking']['cost'] = $this->valetCost;
+        
+        $resource['vip_parking'] = ParkingTypes::VIP_PARKING;
+        $resource['vip_parking']['cost'] = $this->vipCost;
+        
+        $resource['per_hour'] = ParkingTypes::PER_HOUR;
+        $resource['per_hour']['cost'] = $this->hourCost;
+        
+        $resource['fine_hour'] = ParkingTypes::FINE_PARKING;
+        $resource['fine_hour']['cost'] = $this->fineCost;
+
+
+        return $resource;
     }
 }

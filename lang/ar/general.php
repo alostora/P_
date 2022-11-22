@@ -25,6 +25,7 @@ return [
      'informations' => 'معلومات',
 
      'choose' => 'اختر',
+     'all' => 'الكل',
      'operations' => '',
      
      //side bar
@@ -35,6 +36,7 @@ return [
      'countries' => 'الدول',
      'parked_cars' => 'الركنات',
      'seller_accountants' => 'حسابات البائعين',
+     'open_parking' => 'الركنات المفتوحه',
 
      //dashboard
      'carCount' => 'عدد السيارات',

@@ -23,6 +23,9 @@ class Garage extends Model
         'city_id',
         'area_id',
         'hourCost',
+        'vipCost',
+        'valetCost',
+        'fineCost',
         'carCount',
     ];
 

@@ -26,7 +26,10 @@ class GarageCreateRequest extends FormRequest
         return [
             'nameAr' => 'required|unique:countries,nameAr|max:100',
             'nameEn' => 'required|unique:countries,nameEn|max:100',
-            'hourCost' => 'required',
+            'hourCost' => 'required|numeric',
+            'vipCost' => 'required|numeric',
+            'valetCost' => 'required|numeric',
+            'fineCost' => 'required|numeric',
             'country_id' => 'required|exists:countries,id',
             'governorate_id' => 'required|exists:countries,id',
             'city_id' => 'required|exists:countries,id',
