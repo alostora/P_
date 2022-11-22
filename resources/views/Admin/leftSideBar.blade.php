@@ -34,10 +34,31 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li class=""><a href="{{url('admin/admins')}}"><i class="fa fa-circle-o"></i>@lang('general.admins') </a></li>
-          <li class=""><a href="{{url('admin/garage-keepers')}}"><i class="fa fa-circle-o"></i>@lang('general.saies')</a></li>
-          <li class=""><a href="{{url('admin/countries')}}"><i class="fa fa-circle-o"></i>@lang('general.countries')</a></li>
-          <li class=""><a href="{{url('admin/all-parked-cars')}}"><i class="fa fa-circle-o"></i>@lang('general.parked_cars')</a></li>
+          <li>
+            <a href="{{url('admin/admins')}}">
+              <i class="fa fa-circle-o"></i>@lang('general.admins')
+            </a>
+          </li>
+          <li>
+            <a href="{{url('admin/garage-keepers')}}">
+              <i class="fa fa-circle-o"></i>@lang('general.saies')
+            </a>
+          </li>
+          <li>
+            <a href="{{url('admin/countries')}}">
+              <i class="fa fa-circle-o"></i>@lang('general.countries')
+            </a>
+          </li>
+          <li>
+            <a href="{{url('admin/all-parked-cars')}}">
+              <i class="fa fa-circle-o"></i>@lang('general.parked_cars')
+            </a>
+          </li>
+          <li>
+            <a href="{{url('admin/seller-accountants')}}">
+              <i class="fa fa-circle-o"></i>@lang('general.seller_accountants')
+            </a>
+          </li>
         </ul>
       </li>
     </ul>
@@ -46,8 +67,6 @@
 </aside>
 
 <div class="content-wrapper">
-
-
   
 @if ($errors->any())
 <div class="alert alert-warning col-md-6">

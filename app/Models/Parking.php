@@ -38,6 +38,8 @@ class Parking extends Model
 
         'ends_at',
 
+        'accountantsStatus',
+
         'garage_id',
 
         'saies_id',

@@ -42,6 +42,8 @@ return new class extends Migration
 
             $table->string('ends_at')->nullable();
 
+            $table->string('accountantsStatus')->default(0);
+
             $table->unsignedBigInteger('garage_id')->nullable();
             $table->foreign('garage_id')->references('id')->on('garages')
                 ->onDelete('cascade');

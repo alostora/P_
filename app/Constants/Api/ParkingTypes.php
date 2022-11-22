@@ -15,24 +15,24 @@ class ParkingTypes
     public const VALET_PARKING = [
         'code' => 0,
         'prefix' => "VALET_PARKING",
-        'name' => "valet parking",
-        'name_ar' => "valet parking",
+        'name' => "Valet Parking",
+        'name_ar' => "Valet Parking",
         'price' => 175,
     ];
 
     public const VIP_RKING = [
         'code' => 1,
         'prefix' => "VIP_RKING",
-        'name' => "vip parking",
-        'name_ar' => "vip parking",
+        'name' => "VIP Parking",
+        'name_ar' => "VIP Parking",
         'price' => 350,
     ];
     
     public const PER_HOUR = [
         'code' => 2,
         'prefix' => "PER_HOUR",
-        'name' => "per hour",
-        'name_ar' => "per hour",
+        'name' => "Per Hour",
+        'name_ar' => "Per Hour",
         'price' => 0,
     ];
 }

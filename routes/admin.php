@@ -12,6 +12,7 @@ use App\Http\Controllers\Admins\StreetController;
 use App\Http\Controllers\Admins\GarageController;
 use App\Http\Controllers\Admins\GarageKeeperController;
 use App\Http\Controllers\Admins\ParkingController;
+use App\Http\Controllers\Admins\SellerAccountantsController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 
@@ -101,6 +102,9 @@ Route::group([
         Route::get('assigned-garage-keeper/create/{garage}', [AssignedGarageKeeperController::class, 'create']);
         Route::post('assigned-garage-keeper', [AssignedGarageKeeperController::class, 'store']);
         Route::get('assigned-garage-keeper/delete/{garageKeeper}', [AssignedGarageKeeperController::class, 'destroy']);
+        
+        Route::get('seller-accountants', [SellerAccountantsController::class, 'index']);
+        Route::get('seller-accountants/close-account', [SellerAccountantsController::class, 'closeAccount']);
 
         Route::get('all-parked-cars', [ParkingController::class, 'index']);
 

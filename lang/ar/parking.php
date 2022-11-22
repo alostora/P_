@@ -3,6 +3,7 @@
 return [
 
     'page_title' => 'الركنات',
+    'page_title_seller_accountants' => 'حسابات البائعين',
 
     'clientName' => 'اسم العميل',
     'clientCarNumber' => 'رقم السيارة',
@@ -21,4 +22,8 @@ return [
     'saies_id' => 'البائع',
     'vat' => 'ضريبة القيمة المضافة',
     'total' => 'الاجمالي',
+    'accountantsStatus' => 'حالة الحسابات',
+    'closeAccount' => 'اغلاق الحسابات',
+    'opend' => 'مفتوح',
+    'closed' => 'مغلق',
 ];

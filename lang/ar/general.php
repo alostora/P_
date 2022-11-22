@@ -14,7 +14,6 @@ return [
      'logout' => 'تسجيل خروج',
      'search' => 'بحث',
 
-
      'submit' => 'حفظ',
      'create' => 'اضافة',
      'update' => 'تعديل',
@@ -35,6 +34,7 @@ return [
      'saies' => 'البائع',
      'countries' => 'الدول',
      'parked_cars' => 'الركنات',
+     'seller_accountants' => 'حسابات البائعين',
 
      //dashboard
      'carCount' => 'عدد السيارات',

@@ -48,7 +48,7 @@
                                 @foreach ($parking as $key=>$park)
                                     <tr>
                                         <td> {{$park->id}} </td>
-                                        <td> {{App\Constants\Api\ParkingTypes::TYPE_LIST[$park->type ? $park->type : 1]['name_ar']}} </td>
+                                        <td> {{App\Constants\Api\ParkingTypes::TYPE_LIST[$park->type ? $park->type : 0]['name_ar']}} </td>
                                         <td> {{$park->cost}} </td>
                                         <td> {{$park->starts_at}} </td>
                                         <td> {{$park->ends_at}} </td>
