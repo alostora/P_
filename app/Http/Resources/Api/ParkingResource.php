@@ -52,9 +52,9 @@ class ParkingResource extends JsonResource
         ];
 
 
-        $id = PHP_EOL .'parking number : ' . $this->id . PHP_EOL ;
+        $id = PHP_EOL .'ivoice number : ' . $this->id . PHP_EOL ;
 
-        $code = PHP_EOL .'parking number : ' . $this->code . PHP_EOL ;
+        $code = PHP_EOL .'parking code : ' . $this->code . PHP_EOL ;
 
         $company_name = 'Valet & Parking Management' . PHP_EOL;
 
@@ -75,15 +75,13 @@ class ParkingResource extends JsonResource
             
             $invoice = PHP_EOL . 'Invoice No.: : ' . $this->id . PHP_EOL;
 
-            $id = 'parking number : ' . $this->id . PHP_EOL ;
-
             $code = 'parking code : ' . $this->code . PHP_EOL ;
 
             $resource['print_text'] = $invoice . $id . $company_name . $tax_registar . $starts_at . $ends_at  . $cost . $total . $web;
 
         }else{
 
-            $resource['print_text'] = $id . $code . $company_name . $tax_registar . $starts_at . $web;
+            $resource['print_text'] = $id . $company_name . $tax_registar . $starts_at . $web;
 
         }
 

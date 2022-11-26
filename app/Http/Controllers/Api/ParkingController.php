@@ -38,9 +38,11 @@ class ParkingController extends Controller
         return  response()->json($data, 200);
     }
 
-    public function show(Parking $parking)
+    public function show($parkingCode)
     {
-        
+        $parking = Parking::find($parkingCode);
+        $parking = !empty($parking) ? $parking : Parking::where('code',$parkingCode)->first();
+
         $data = [
             'success' => true,
             'message' => trans('garage.parked_car_retrieved_successfully'),
@@ -67,13 +69,9 @@ class ParkingController extends Controller
 
             $parking->status = true;
             
-            $parking->code = null;
-
             $parking->ends_at = Carbon::now();
 
             $parking->saies_id = $user->id;
-
-            //$parking->save();
 
             $start  = new Carbon($parking->starts_at);
 
