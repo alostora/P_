@@ -50,8 +50,8 @@
             </a>
           </li>
           <li>
-            <a href="{{url('admin/all-parked-cars')}}">
-              <i class="fa fa-circle-o"></i>@lang('general.parked_cars')
+            <a href="{{url('admin/close-parking-cars')}}">
+              <i class="fa fa-circle-o"></i>@lang('general.close_parking')
             </a>
           </li>
           <li>

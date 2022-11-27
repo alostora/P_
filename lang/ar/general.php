@@ -34,9 +34,9 @@ return [
      'admins' => 'الادمن',
      'saies' => 'البائع',
      'countries' => 'الدول',
-     'parked_cars' => 'الركنات',
      'seller_accountants' => 'حسابات البائعين',
      'open_parking' => 'الركنات المفتوحه',
+     'close_parking' => 'الركنات المغلقة',
 
      //dashboard
      'carCount' => 'عدد السيارات',

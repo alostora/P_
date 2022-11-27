@@ -1,4 +1,3 @@
-
 <section class="content">
     <div class="row">
         <div class="col-xs-12">
@@ -7,23 +6,14 @@
                     <h3 class="box-title col-md-6">@lang('parking.page_title')</h3>
                     <div class="col-md-6">
                         <form style="margin: 20px;">
-                            <div class="form-group co">
-                                <div class="col-md-4">
-                                    <label>@lang('parking.starts_at') :</label>
-                                    <div class="input-group">
-                                        <input type="date" class="form-control" name="date_from" value="{{!empty(Request('date_from')) ? Request('date_from'):''}}">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <label>@lang('parking.ends_at') :</label>
-                                    <div class="input-group">
-                                        <input type="date" class="form-control" name="date_to" value="{{!empty(Request('date_to')) ? Request('date_to'):''}}">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <label>@lang('general.search')</label>
-                                    <div class="input-group">
-                                        <button class="btn btn-success"> <i class="fa fa-search"></i> </button>
+                            <div class="col-xs-6">
+                                <input name = "date_from" type="date" class = "form-control" value = "{{!empty(Request('date_from'))?Request('date_from'):date('Y-m-d', strtotime('-1 day'))}}">
+                            </div>
+                            <div class="col-xs-3">
+                                <div class="input-group">
+                                    <input name = "date_to" type="date" class = "form-control" value = "{{!empty(Request('date_to'))?Request('date_to'):date('Y-m-d', strtotime('+0 day'))}}">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-success btn-md"> <i class="fa fa-search"></i> </button>
                                     </div>
                                 </div>
                             </div>
