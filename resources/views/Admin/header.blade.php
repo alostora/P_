@@ -66,7 +66,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
 
 </head>
-<body class="hold-transition skin-blue sidebar-mini" dir={{$dir}} > 
+<body class="hold-transition skin-blue sidebar-mini {{auth()->user()->type == \App\Constants\UserTyps::MODERATOR['code'] ? 'skin-blue sidebar-mini sidebar-collapse' : ''}}" dir={{$dir}} > 
 
   <div class="wrapper">
     

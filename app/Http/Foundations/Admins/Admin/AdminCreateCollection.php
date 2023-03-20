@@ -13,7 +13,6 @@ class AdminCreateCollection
         $validated = $request->validated();
 
         $validated['password'] = Hash::make($validated['password']);
-        $validated['type'] = UserTyps::ADMIN['code'];
 
         User::create($validated);
     }

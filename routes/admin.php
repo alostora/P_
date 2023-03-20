@@ -16,6 +16,7 @@ use App\Http\Controllers\Admins\SellerAccountantsController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 
+
 Route::group([
     'prefix' => 'admin',
     'middleware' => 'lang'

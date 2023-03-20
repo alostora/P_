@@ -1,5 +1,5 @@
 <!-- Left side column. contains the logo and sidebar -->
-<aside class="main-sidebar">
+<aside class="main-sidebar"  style="display:{{auth()->user()->type == \App\Constants\UserTyps::MODERATOR['code'] ? 'none' : ''}}">
   <!-- sidebar: style can be found in sidebar.less -->
   <section class="sidebar">
     <!-- Sidebar user panel -->

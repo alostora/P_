@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Admin;
 
+use App\Constants\UserTyps;
 use Illuminate\Foundation\Http\FormRequest;
 
 class AdminCreateRequest extends FormRequest
@@ -30,6 +31,7 @@ class AdminCreateRequest extends FormRequest
             'confirmPassword' => 'same:password',
             'phone' => 'required|unique:users,phone|max:20',
             'address' => 'required|max:255',
+            'type' => 'required|in:'.UserTyps::ADMIN['code'].','.UserTyps::MODERATOR['code'],
         ];
     }
 }

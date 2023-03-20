@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admins;
 
+use App\Constants\UserTyps;
 use App\Http\Controllers\Controller;
 use App\Http\Foundations\Admins\Admin\AdminCreateCollection;
 use App\Http\Foundations\Admins\Admin\AdminUpdateCollection;
@@ -15,9 +16,7 @@ class AdminController extends Controller
 
     public function index()
     {
-        $users = User::where('type', 0)->get();
-
-        $users = UserResource::collection($users);
+        $users = User::where('type' , '!=' , UserTyps::SAIES['code'])->get();
 
         return view('Admin.Admins.index', compact('users'));
     }

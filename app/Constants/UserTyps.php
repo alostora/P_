@@ -30,6 +30,6 @@ class UserTyps
         'code' => 2,
         'prefix' => "SAIES",
         'name' => "Saies",
-        'name_ar' => "سايس"
+        'name_ar' => "بائع"
     ];
 }
