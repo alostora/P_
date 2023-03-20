@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admins;
 
+use App\Constants\UserTyps;
 use App\Http\Controllers\Controller;
 use App\Http\Foundations\Admins\GarageKeeper\GarageKeeperCreateCollection;
 use App\Http\Foundations\Admins\GarageKeeper\GarageKeeperUpdateCollection;
@@ -16,7 +17,7 @@ class GarageKeeperController extends Controller
 
     public function index()
     {
-        $garageKeepers = User::where('type', 2)->get();
+        $garageKeepers = User::where('type', UserTyps::SAIES['code'])->get();
 
         $garageKeepers = UserResource::collection($garageKeepers);
 

@@ -41,14 +41,14 @@ class ParkingController extends Controller
     public function show($parkingCode)
     {
         $parking = Parking::find($parkingCode);
-        $parking = !empty($parking) ? $parking : Parking::where('code',$parkingCode)->first();
+        $parking = !empty($parking) ? $parking : Parking::where('code', $parkingCode)->first();
 
         $data = [
             'success' => true,
             'message' => trans('garage.parked_car_retrieved_successfully'),
             'data' => new ParkingResource($parking),
         ];
-        
+
         return  response()->json($data, 200);
     }
 
@@ -61,14 +61,14 @@ class ParkingController extends Controller
         ];
 
         $parking = Parking::find($parkingCode);
-        $parking = !empty($parking) ? $parking : Parking::where('code',$parkingCode)->first();
+        $parking = !empty($parking) ? $parking : Parking::where('code', $parkingCode)->first();
 
         if (!empty($parking) && empty($parking->ends_at)) {
 
             $user = auth()->guard('api')->user();
 
             $parking->status = true;
-            
+
             $parking->ends_at = Carbon::now();
 
             $parking->saies_id = $user->id;
@@ -86,7 +86,6 @@ class ParkingController extends Controller
             if ($minutes > 0 && $hours > 0) {
 
                 $hours = $start->diffInHours($end) + 1;
-
             } elseif ($hours == 0) {
 
                 $hours = 1;
@@ -103,7 +102,7 @@ class ParkingController extends Controller
             if ($parking->type == ParkingTypes::VIP_PARKING['code']) {
                 $parking->cost = $user->garage->garage->vipCost;
             }
-            
+
             if ($parking->type == ParkingTypes::FINE_PARKING['code']) {
                 $parking->cost = $user->garage->garage->fineCost;
             }
@@ -117,10 +116,8 @@ class ParkingController extends Controller
             ];
         }
 
-
         return  response()->json($data, 200);
     }
-
 
     public function balance()
     {

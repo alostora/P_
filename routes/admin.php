@@ -98,12 +98,12 @@ Route::group([
         Route::post('garage', [GarageController::class, 'store']);
         Route::patch('garage/{garage}', [GarageController::class, 'update']);
         Route::get('garage/delete/{garage}', [GarageController::class, 'destroy']);
-        
+
         Route::get('assigned-garage-keeper/{garage}', [AssignedGarageKeeperController::class, 'index']);
         Route::get('assigned-garage-keeper/create/{garage}', [AssignedGarageKeeperController::class, 'create']);
         Route::post('assigned-garage-keeper', [AssignedGarageKeeperController::class, 'store']);
         Route::get('assigned-garage-keeper/delete/{garageKeeper}', [AssignedGarageKeeperController::class, 'destroy']);
-        
+
         Route::get('seller-accountants', [SellerAccountantsController::class, 'index']);
         Route::get('seller-accountants/close-account', [SellerAccountantsController::class, 'closeAccount']);
 

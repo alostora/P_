@@ -16,7 +16,11 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        if (auth()->attempt(['email' => $request->email, 'password' => $request->password]) == true) {
+        if (auth()->attempt([
+            'email' => $request->email,
+            'password' => $request->password,
+            'type' => UserTyps::ADMIN['code']
+        ]) == true) {
             return redirect(url('admin'));
         } else {
             return redirect(url('admin/login'));

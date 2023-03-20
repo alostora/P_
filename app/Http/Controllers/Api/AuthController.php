@@ -18,14 +18,14 @@ class AuthController extends Controller
     public function login(Request $request)
     {
 
-        $user = User::where('phone', $request->phone)->where('type', UserTyps::SAIES['code'])->first();
+        $user = User::where('phone', $request->phone)->orWhere('email', $request->email)->first();
 
         if (empty($user)) {
 
             $data = [
                 'success' => false,
 
-                'message' => 'phone not found',
+                'message' => 'please enter valid email or password',
             ];
 
             return response()->json($data, 401);
@@ -58,6 +58,7 @@ class AuthController extends Controller
 
         $data = [
             'success' => true,
+            
             'message' => trans('saies.logged_out_successfully'),
         ];
         
