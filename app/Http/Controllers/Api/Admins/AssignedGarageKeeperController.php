@@ -11,8 +11,6 @@ class AssignedGarageKeeperController extends Controller
     
     public function index(Garage $garage)
     {
-        $data['garageKeepers'] = GarageKeeperResource::collection($garage->manySaies);
-
-        return $data;
+        return GarageKeeperResource::collection($garage->manySaies()->paginate(25));
     }
 }

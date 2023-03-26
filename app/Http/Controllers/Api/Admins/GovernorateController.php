@@ -12,16 +12,15 @@ class GovernorateController extends Controller
 
     public function index(Country $country)
     {
-        $governorates = Country::where('country_id',$country->id)->where('type', CountryTyps::GOVERNORATE['code'])->get();
+        $governorates = Country::where('country_id', $country->id)
+            ->where('type', CountryTyps::GOVERNORATE['code'])
+            ->paginate(25);
 
-        $governorates = GovernorateResource::collection($governorates);
-
-        return $governorates;
+        return GovernorateResource::collection($governorates);
     }
 
     public function show(Country $country)
     {
-        return $country;
+        return new GovernorateResource($country);
     }
-
 }

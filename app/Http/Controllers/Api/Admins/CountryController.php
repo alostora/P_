@@ -17,16 +17,13 @@ class CountryController extends Controller
 
     public function index()
     {
-        $countries = Country::where('type', CountryTyps::COUNTRY['code'])->get();
+        $countries = Country::where('type', CountryTyps::COUNTRY['code'])->paginate(25);
 
-        $countries = CountryResource::collection($countries);
-
-        return $countries;
+        return CountryResource::collection($countries);
     }
 
     public function show(Country $country)
     {
-        return $country;
+        return new CountryResource($country);
     }
-
 }

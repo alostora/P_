@@ -14,7 +14,7 @@ class SellerAccountantsController extends Controller
 {
     public function index(Request $request)
     {
-        $saies = User::where('type', UserTyps::SAIES['code'])->get();
+        // $saies = User::where('type', UserTyps::SAIES['code'])->get();
 
         $parking = Parking::where('accountantsStatus', $request->get('accountantsStatus'))
 
@@ -38,7 +38,7 @@ class SellerAccountantsController extends Controller
                         Carbon::create(Carbon::now())->endOfDay()
                     ]);
                 }
-            })->get();
+            })->paginate(25);
 
         $parking = ParkingResource::collection($parking);
 

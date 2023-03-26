@@ -11,15 +11,13 @@ class StreetController extends Controller
 {
     public function index(Country $country)
     {
-        $streets = Country::where('area_id', $country->id)->where('type', CountryTyps::STREET['code'])->get();
+        $streets = Country::where('area_id', $country->id)->where('type', CountryTyps::STREET['code'])->paginate(25);
 
-        $streets = StreetResource::collection($streets);
-
-        return $streets;
+        return StreetResource::collection($streets);
     }
 
     public function show(Country $country)
     {
-        return $country;
+        return new StreetResource($country);
     }
 }

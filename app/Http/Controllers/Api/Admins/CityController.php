@@ -18,13 +18,11 @@ class CityController extends Controller
     {
         $cities = Country::where('governorate_id',$country->id)->where('type', CountryTyps::CITY['code'])->get();
 
-        $cities = CityResource::collection($cities);
-
-        return $cities;
+        return CityResource::collection($cities);
     }
 
     public function show(Country $country)
     {
-        return $country;
+        return new CityResource($country);
     }
 }

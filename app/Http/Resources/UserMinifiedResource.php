@@ -20,7 +20,9 @@ class UserMinifiedResource extends JsonResource
 
             'id' => $this->id,
             'name' => $this->name,
+            'email' => $this->email,
             'phone' => $this->phone,
+            'address' => $this->address,
             'garage' => new GarageKeeperResource($this->garage),
         ];
     }

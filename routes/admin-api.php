@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::group(['middleware' => 'auth_api', 'prefix' => 'admin'], function () {
+Route::group(['middleware' => 'admin_auth_api', 'prefix' => 'admin'], function () {
 
     Route::get('garage-keepers', [GarageKeeperController::class, 'index']);
     Route::get('garage-keeper/{user}', [GarageKeeperController::class, 'show']);

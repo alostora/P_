@@ -42,11 +42,9 @@ class ParkingController extends Controller
             }
         })->where('accountantsStatus', 1)
 
-            ->get();
+            ->paginate(25);
 
-        $parking = ParkingResource::collection($parking);
-
-        return $parking;
+        return ParkingResource::collection($parking);
     }
 
     public function openParking(Request $request)
@@ -82,10 +80,8 @@ class ParkingController extends Controller
 
             ->where('ends_at', '!=', null)
 
-            ->get();
+            ->paginate(25);
 
-        $parking = ParkingResource::collection($parking);
-
-        return $parking;
+        return ParkingResource::collection($parking);
     }
 }

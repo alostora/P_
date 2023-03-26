@@ -12,15 +12,13 @@ class AreaController extends Controller
 
     public function index(Country $country)
     {
-        $areas = Country::where('city_id',$country->id)->where('type', CountryTyps::AREA['code'])->get();
-        $areas = AreaResource::collection($areas);
+        $areas = Country::where('city_id', $country->id)->where('type', CountryTyps::AREA['code'])->paginate(25);
 
-        return $areas;
+        return AreaResource::collection($areas);
     }
 
     public function show(Country $country)
     {
-        return $country;
+        return new AreaResource($country);
     }
-
 }
