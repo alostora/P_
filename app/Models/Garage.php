@@ -27,6 +27,7 @@ class Garage extends Model
         'valetCost',
         'fineCost',
         'carCount',
+        'freeHours',
     ];
 
     

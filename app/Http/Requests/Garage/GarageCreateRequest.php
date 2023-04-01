@@ -30,6 +30,7 @@ class GarageCreateRequest extends FormRequest
             'vipCost' => 'required|numeric',
             'valetCost' => 'required|numeric',
             'fineCost' => 'required|numeric',
+            'freeHours' => 'nullable|numeric',
             'country_id' => 'required|exists:countries,id',
             'governorate_id' => 'required|exists:countries,id',
             'city_id' => 'required|exists:countries,id',

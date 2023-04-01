@@ -34,28 +34,30 @@ return new class extends Migration
             $table->integer('fineCost')->default(0);
 
             $table->integer('carCount')->default(0);
-            
+
+            $table->integer('freeHours')->default(0);
+
             $table->string('status')->nullable(); //avl,not avl
-            
+
             $table->unsignedBigInteger('country_id')->nullable();
             $table->foreign('country_id')->references('id')->on('countries')
-            ->onDelete('cascade');
+                ->onDelete('cascade');
 
             $table->unsignedBigInteger('governorate_id')->nullable();
             $table->foreign('governorate_id')->references('id')->on('countries')
-            ->onDelete('cascade');
-            
+                ->onDelete('cascade');
+
             $table->unsignedBigInteger('city_id')->nullable();
             $table->foreign('city_id')->references('id')->on('countries')
-            ->onDelete('cascade');
+                ->onDelete('cascade');
 
             $table->unsignedBigInteger('area_id')->nullable();
             $table->foreign('area_id')->references('id')->on('countries')
-            ->onDelete('cascade');
+                ->onDelete('cascade');
 
             $table->unsignedBigInteger('street_id')->nullable();
             $table->foreign('street_id')->references('id')->on('countries')
-            ->onDelete('cascade');
+                ->onDelete('cascade');
 
             $table->timestamps();
         });

@@ -67,13 +67,17 @@ class ParkingController extends Controller
 
             $user = auth()->guard('api')->user();
 
+            $freeMinutes = $parking->garage->freeHours ? $parking->garage->freeHours * 60 : 0;
+
             $parking->status = true;
 
             $parking->ends_at = Carbon::now();
 
             $parking->saies_id = $user->id;
-
+            
             $start  = new Carbon($parking->starts_at);
+
+            $start  = $start->addMinutes($freeMinutes);
 
             $end  = new Carbon($parking->ends_at);
 
@@ -108,6 +112,8 @@ class ParkingController extends Controller
             }
 
             $parking->save();
+            
+            $parking->starts_at = $start;
 
             $data = [
                 'success' => true,
