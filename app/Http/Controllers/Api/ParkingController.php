@@ -61,13 +61,12 @@ class ParkingController extends Controller
         ];
 
         $parking = Parking::find($parkingCode);
-        $parking = !empty($parking) ? $parking : Parking::where('code', $parkingCode)->first();
+
+        $parking = !empty($parking) ? $parking : Parking::where('code', $parkingCode)->latest()->first();
 
         if (!empty($parking) && empty($parking->ends_at)) {
 
             $user = auth()->guard('api')->user();
-
-            $freeMinutes = $parking->garage->freeHours ? $parking->garage->freeHours * 60 : 0;
 
             $parking->status = true;
 
@@ -76,8 +75,6 @@ class ParkingController extends Controller
             $parking->saies_id = $user->id;
             
             $start  = new Carbon($parking->starts_at);
-
-            $start  = $start->addMinutes($freeMinutes);
 
             $end  = new Carbon($parking->ends_at);
 
@@ -95,6 +92,14 @@ class ParkingController extends Controller
                 $hours = 1;
             }
 
+            //calc free hours
+            if($parking->garage->freeHours ){
+                $hours = ceil( $hours - $parking->garage->freeHours );
+                if($hours <= 0){
+                    $hours = 0;
+                }
+            }
+
             if ($parking->type == ParkingTypes::PER_HOUR['code']) {
                 $parking->cost = $hours * $user->garage->garage->hourCost;
             }
@@ -110,10 +115,8 @@ class ParkingController extends Controller
             if ($parking->type == ParkingTypes::FINE_PARKING['code']) {
                 $parking->cost = $user->garage->garage->fineCost;
             }
-
-            $parking->save();
             
-            $parking->starts_at = $start;
+            $parking->save();
 
             $data = [
                 'success' => true,

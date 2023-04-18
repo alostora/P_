@@ -54,6 +54,6 @@ class User extends Authenticatable
 
     public function garage():HasOne
     {
-        return $this->hasOne(GarageKeeper::class,'saies_id');
+        return $this->hasOne(GarageKeeper::class,'saies_id','id');
     }
 }
