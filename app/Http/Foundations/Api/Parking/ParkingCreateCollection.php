@@ -10,15 +10,22 @@ class ParkingCreateCollection
 {
     public static function createParking($request)
     {
+
+        $code = 10000;
+
+        $parking = Parking::latest()->first();
+
+        if($parking && $parking->code <= 45000){
+            $code = $parking->code + 1;
+        }
+
         $data = $request->validated();
 
         $data['saies_id'] = auth()->guard('api')->id();
 
         $data['garage_id'] = auth()->guard('api')->user()->garage->garage_id;
 
-        $data['code'] = rand(10000,45000);
-
-        Parking::where('code',$data['code'])->update(['code'=>null]);
+        $data['code'] = $code;
 
         $data['starts_at'] = Carbon::now();
 

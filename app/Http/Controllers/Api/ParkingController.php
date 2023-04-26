@@ -40,8 +40,9 @@ class ParkingController extends Controller
 
     public function show($parkingCode)
     {
-        $parking = Parking::find($parkingCode);
-        $parking = !empty($parking) ? $parking : Parking::where('code', $parkingCode)->first();
+        $parking = Parking::where('code', $parkingCode)->latest()->first();
+
+        $parking = !empty($parking) ? $parking : Parking::find($parkingCode);
 
         $data = [
             'success' => true,
@@ -60,9 +61,9 @@ class ParkingController extends Controller
             'data' => [],
         ];
 
-        $parking = Parking::find($parkingCode);
+        $parking = Parking::where('code', $parkingCode)->latest()->first();
 
-        $parking = !empty($parking) ? $parking : Parking::where('code', $parkingCode)->latest()->first();
+        $parking = !empty($parking) ? $parking : Parking::find($parkingCode);
 
         if (!empty($parking) && empty($parking->ends_at)) {
 
@@ -73,7 +74,7 @@ class ParkingController extends Controller
             $parking->ends_at = Carbon::now();
 
             $parking->saies_id = $user->id;
-            
+
             $start  = new Carbon($parking->starts_at);
 
             $end  = new Carbon($parking->ends_at);
@@ -93,9 +94,9 @@ class ParkingController extends Controller
             }
 
             //calc free hours
-            if($parking->garage->freeHours ){
-                $hours = ceil( $hours - $parking->garage->freeHours );
-                if($hours <= 0){
+            if ($parking->garage->freeHours) {
+                $hours = ceil($hours - $parking->garage->freeHours);
+                if ($hours <= 0) {
                     $hours = 0;
                 }
             }
@@ -115,7 +116,7 @@ class ParkingController extends Controller
             if ($parking->type == ParkingTypes::FINE_PARKING['code']) {
                 $parking->cost = $user->garage->garage->fineCost;
             }
-            
+
             $parking->save();
 
             $data = [
