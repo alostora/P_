@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Constants\Api\ParkingTypes;
 use App\Http\Controllers\Controller;
 use App\Http\Foundations\Api\Parking\ParkingCreateCollection;
+use App\Http\Foundations\Api\Parking\ParkingEndCollection;
 use App\Http\Requests\Api\ParkingCreateRequest;
 use App\Http\Resources\Api\ParkingResource;
 use App\Models\Garage;
 use App\Models\Parking;
-use Carbon\Carbon;
 
 class ParkingController extends Controller
 {
@@ -55,76 +54,13 @@ class ParkingController extends Controller
 
     public function endParking($parkingCode)
     {
+        $parking = ParkingEndCollection::endParking($parkingCode);
+
         $data = [
-            'success' => false,
-            'message' => trans('garage.parked_car_already_scaned_befor_or_not_found'),
-            'data' => [],
+            'success' => $parking ? true : false,
+            'message' => trans('garage.' . $parking ? 'parked_car_ended_successfully' : 'parked_car_already_scaned_befor_or_not_found'),
+            'data' => $parking ? new ParkingResource($parking) : [],
         ];
-
-        $parking = Parking::where('code', $parkingCode)->latest()->first();
-
-        $parking = !empty($parking) ? $parking : Parking::find($parkingCode);
-
-        if (!empty($parking) && empty($parking->ends_at)) {
-
-            $user = auth()->guard('api')->user();
-
-            $parking->status = true;
-
-            $parking->ends_at = Carbon::now();
-
-            $parking->saies_id = $user->id;
-
-            $start  = new Carbon($parking->starts_at);
-
-            $end  = new Carbon($parking->ends_at);
-
-            $minutes = $start->diff($end)->format('%I');
-
-            $hours = $start->diffInHours($end);
-
-            $hours = $minutes > 0 ? $start->diffInHours($end) + 1 : $hours;
-
-            if ($minutes > 0 && $hours > 0) {
-
-                $hours = $start->diffInHours($end) + 1;
-            } elseif ($hours == 0) {
-
-                $hours = 1;
-            }
-
-            //calc free hours
-            if ($parking->garage->freeHours) {
-                $hours = ceil($hours - $parking->garage->freeHours);
-                if ($hours <= 0) {
-                    $hours = 0;
-                }
-            }
-
-            if ($parking->type == ParkingTypes::PER_HOUR['code']) {
-                $parking->cost = $hours * $user->garage->garage->hourCost;
-            }
-
-            if ($parking->type == ParkingTypes::VALET_PARKING['code']) {
-                $parking->cost = $user->garage->garage->valetCost;
-            }
-
-            if ($parking->type == ParkingTypes::VIP_PARKING['code']) {
-                $parking->cost = $user->garage->garage->vipCost;
-            }
-
-            if ($parking->type == ParkingTypes::FINE_PARKING['code']) {
-                $parking->cost = $user->garage->garage->fineCost;
-            }
-
-            $parking->save();
-
-            $data = [
-                'success' => true,
-                'message' => trans('garage.parked_car_ended_successfully'),
-                'data' => new ParkingResource($parking),
-            ];
-        }
 
         return  response()->json($data, 200);
     }
@@ -134,17 +70,8 @@ class ParkingController extends Controller
         $user = auth()->guard('api')->user();
 
         $parckedCostToday = Parking::where('saies_id', $user->id)
-
-            ->whereBetween('ends_at', [
-
-                carbon::create(Carbon::today())->startOfDay(),
-
-                Carbon::create(Carbon::today())->endOfDay()
-
-            ])
+            ->where('accountantsStatus', '!=', 1)
             ->sum('cost');
-
-        $parckedCostToday = $parckedCostToday;
 
         return ['current_balance' => (string)$parckedCostToday . " SAR"];
     }

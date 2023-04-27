@@ -21,10 +21,11 @@ class DashboardController extends Controller
         ])
         ->count();
 
-        $data['totalTodayIncom'] = Parking::whereBetween('ends_at', [
-            carbon::create(Carbon::today())->startOfDay(),
-            Carbon::create(Carbon::today())->endOfDay()
-        ])
+        $data['totalTodayIncom'] = Parking::where('accountantsStatus', '!=', 1)
+        // ->whereBetween('ends_at', [
+        //     carbon::create(Carbon::today())->startOfDay(),
+        //     Carbon::create(Carbon::today())->endOfDay()
+        // ])
         ->sum('cost');
 
         $data['totalMonthIncom'] = Parking::whereBetween('ends_at', [
