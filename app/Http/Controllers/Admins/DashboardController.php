@@ -16,30 +16,30 @@ class DashboardController extends Controller
         $data['saiesCount'] = User::where('type',UserTyps::SAIES['code'])->count();
 
         $data['parkedCarsCount'] = Parking::whereBetween('starts_at', [
-            carbon::create(Carbon::today())->startOfDay(),
+            Carbon::create(Carbon::today())->startOfDay(),
             Carbon::create(Carbon::today())->endOfDay()
         ])
         ->count();
 
         $data['totalTodayIncom'] = Parking::where('accountantsStatus', '!=', 1)
-        // ->whereBetween('ends_at', [
-        //     carbon::create(Carbon::today())->startOfDay(),
-        //     Carbon::create(Carbon::today())->endOfDay()
-        // ])
+        ->whereBetween('ends_at', [
+            Carbon::create(Carbon::today())->startOfDay(),
+            Carbon::create(Carbon::today())->endOfDay()
+        ])
         ->sum('cost');
 
         $data['totalMonthIncom'] = Parking::whereBetween('ends_at', [
-            carbon::create(Carbon::today())->startOfMonth(),
+            Carbon::create(Carbon::today())->startOfMonth(),
             Carbon::create(Carbon::today())->endOfDay()
         ])
         ->sum('cost');
-        
+
         $data['totalYearIncom'] = Parking::whereBetween('ends_at', [
-            carbon::create(Carbon::today())->startOfYear(),
+            Carbon::create(Carbon::today())->startOfYear(),
             Carbon::create(Carbon::today())->endOfDay()
         ])
         ->sum('cost');
-        
+
 
 
         return view('Admin/dashboard',$data);
