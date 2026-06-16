@@ -56,11 +56,21 @@ class ParkingController extends Controller
     {
         $parking = ParkingEndCollection::endParking($parkingCode);
 
-        $data = [
-            'success' => $parking ? true : false,
-            'message' => trans('garage.' . $parking ? 'parked_car_ended_successfully' : 'parked_car_already_scaned_befor_or_not_found'),
-            'data' => $parking ? new ParkingResource($parking) : [],
-        ];
+        if ($parking === false) {
+
+            $data = [
+                'success' => false,
+                'message' => trans('garage.parked_car_already_scaned_befor_or_not_found'),
+                'data' => [],
+            ];
+        } else {
+
+            $data = [
+                'success' => $parking ? true : false,
+                'message' => trans('garage.' . $parking ? 'parked_car_ended_successfully' : 'parked_car_already_scaned_befor_or_not_found'),
+                'data' => $parking ? new ParkingResource($parking) : [],
+            ];
+        }
 
         return  response()->json($data, 200);
     }

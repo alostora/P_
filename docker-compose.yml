@@ -1,0 +1,48 @@
+services:
+    app:
+        build: .
+        image: parking
+        container_name: parking_app
+        ports:
+            - '8000:80'
+        volumes:
+            - '.:/var/www/html'
+        networks:
+            - p-network
+        depends_on:
+            - mysql
+
+    mysql:
+        image: 'mysql:8.4'
+        container_name: parking_mysql
+        ports:
+            - '3307:3306'
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: p_database
+            MYSQL_USER: p_user
+            MYSQL_PASSWORD: p_password
+        volumes:
+            - mysql-data:/var/lib/mysql
+        networks:
+            - p-network
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        container_name: parking_phpmyadmin
+        ports:
+            - '8081:80'
+        environment:
+            PMA_HOST: mysql
+            PMA_USER: p_user
+            PMA_PASSWORD: p_password
+        networks:
+            - p-network
+
+networks:
+    p-network:
+        driver: bridge
+
+volumes:
+    mysql-data:
+        driver: local
