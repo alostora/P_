@@ -3,40 +3,34 @@
 namespace App\Http\Foundations\Api\Parking;
 
 use App\Models\Parking;
+use App\Models\User;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\DB;
 
 class ParkingCreateCollection
 {
     public static function createParking($request)
     {
-        return DB::transaction(function () use ($request) {
-            $user = auth()->guard('api')->user();
 
-            // Get all used codes
-            $usedCodes = Parking::whereBetween('code', [10000, 45000])
-                ->pluck('code')
-                ->toArray();
+        $code = 10000;
 
-            // Find next available code
-            $code = 10000;
-            while (in_array($code, $usedCodes) && $code < 45000) {
-                $code++;
-            }
+        $parking = Parking::whereNull('ends_at')->whereNull('status')->latest()->first();
 
-            // Reset if all codes are used
-            if ($code > 45000) {
-                $code = 10000;
-            }
+        if ($parking && $parking->code <= 45000) {
+            $code = $parking->code + 1;
+        }
 
-            $data = $request->validated();
-            $data['saies_id'] = $user->id;
-            $data['garage_id'] = $user->garage->garage_id;
-            $data['code'] = $code;
-            $data['starts_at'] = Carbon::now();
-            $data['hourCost'] = $user->garage->garage->hourCost;
+        $data = $request->validated();
 
-            return Parking::create($data);
-        });
+        $data['saies_id'] = auth()->guard('api')->id();
+
+        $data['garage_id'] = auth()->guard('api')->user()->garage->garage_id;
+
+        $data['code'] = $code;
+
+        $data['starts_at'] = Carbon::now();
+
+        $data['hourCost'] = auth()->guard('api')->user()->garage->garage->hourCost;
+
+        return  Parking::create($data);
     }
 }

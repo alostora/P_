@@ -17,53 +17,67 @@ class ParkingEndCollection
             return false;
         }
 
-        if ($parking) {
-            $parking = self::calcParkedHoursAndEndPark($parking);
+        if (!empty($parking)) {
+
+            $parking = self::calckParkedHoursAndEndPark($parking);
         }
 
         return $parking;
     }
 
-    public static function calcParkedHoursAndEndPark(Parking $parking)
+    public static function calckParkedHoursAndEndPark(Parking $parking)
     {
+
         $parking->ends_at = Carbon::now();
 
-        $totalMinutes = $parking->starts_at->diffInMinutes($parking->ends_at);
+        $start  = new Carbon($parking->starts_at);
 
-        // Calculate hours: free if <= 5 min, otherwise charge
-        if ($totalMinutes <= 5) {
-            $hours = 0;
-        } else {
-            $hours = floor($totalMinutes / 60);
-            if ($totalMinutes % 60 > 5) {
-                $hours++;
-            }
-            if ($hours == 0) {
-                $hours = 1;
-            }
+        $end  = new Carbon($parking->ends_at);
+
+        $minutes = $start->diff($end)->format('%I');
+
+        $hours = $start->diffInHours($end);
+
+        $hours = $minutes > 0 ? $start->diffInHours($end) + 1 : $hours;
+
+        if ($minutes > 0 && $hours > 0) {
+
+            $hours = $start->diffInHours($end) + 1;
+        } elseif ($hours == 0) {
+
+            $hours = 1;
         }
 
-        // Apply free hours discount
-        if ($parking->garage->freeHours > 0 && $hours > 0) {
-            $hours = max(0, $hours - $parking->garage->freeHours);
+        //calc free hours
+        if ($parking->garage->freeHours) {
+            $hours = ceil($hours - $parking->garage->freeHours);
+            if ($hours <= 0) {
+                $hours = 0;
+            }
         }
 
         $user = auth()->guard('api')->user();
 
-        // Calculate cost
-        $cost = 0;
         if ($parking->type == ParkingTypes::PER_HOUR['code']) {
-            $cost = $hours * $user->garage->garage->hourCost;
-        } elseif ($parking->type == ParkingTypes::VALET_PARKING['code']) {
-            $cost = $user->garage->garage->valetCost;
-        } elseif ($parking->type == ParkingTypes::VIP_PARKING['code']) {
-            $cost = $user->garage->garage->vipCost;
-        } elseif ($parking->type == ParkingTypes::FINE_PARKING['code']) {
-            $cost = $user->garage->garage->fineCost;
+            $parking->cost = $hours * $user->garage->garage->hourCost;
         }
 
-        $parking->cost = $cost;
+        if ($parking->type == ParkingTypes::VALET_PARKING['code']) {
+            $parking->cost = $user->garage->garage->valetCost;
+        }
+
+        if ($parking->type == ParkingTypes::VIP_PARKING['code']) {
+            $parking->cost = $user->garage->garage->vipCost;
+        }
+
+        if ($parking->type == ParkingTypes::FINE_PARKING['code']) {
+            $parking->cost = $user->garage->garage->fineCost;
+        }
+
         $parking->status = true;
+
+        $parking->saies_id = $user->id;
+
         $parking->save();
 
         return $parking;
