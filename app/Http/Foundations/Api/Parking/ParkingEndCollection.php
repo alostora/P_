@@ -10,7 +10,7 @@ class ParkingEndCollection
 {
     public static function endParking($parkingCode)
     {
-        $parking = Parking::where('code', $parkingCode)->whereNull('ends_at')->whereNull('status')->latest()->first();
+        $parking = Parking::where('code', $parkingCode)->whereNull('ends_at')->latest()->first();
 
         if (!$parking) {
 
@@ -38,14 +38,17 @@ class ParkingEndCollection
 
         $hours = $start->diffInHours($end);
 
-        $hours = $minutes > 0 ? $start->diffInHours($end) + 1 : $hours;
+        // $hours = $minutes > 5 ? $start->diffInHours($end) + 1 : $hours;
 
-        if ($minutes > 0 && $hours > 0) {
-
-            $hours = $start->diffInHours($end) + 1;
-        } elseif ($hours == 0) {
+        if ($minutes > 5 && $hours <= 0) {
 
             $hours = 1;
+        } elseif ($minutes > 5 && $hours > 0) {
+
+            $hours = $hours + 1;
+        } elseif ($minutes <= 5 && $hours <= 0) {
+
+            $hours = 0;
         }
 
         //calc free hours
